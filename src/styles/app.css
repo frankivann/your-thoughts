@@ -1,0 +1,43 @@
+.app {
+  min-height: 100vh;
+  width: min(800px, 100%);
+  margin: auto;
+  padding: 20px;
+}
+
+/* header */
+
+.header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.logo {
+  font-weight: 400;
+}
+
+/* main */
+
+.main {
+  margin-top: 50px;
+}
+
+.title {
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.toughts {
+  margin-top: 20px;
+  color: rgb(255, 255, 255, 0.6);
+  font-size: 0.8rem;
+}
+
+.tought {
+  padding-left: 20px;
+}
+
+.tought::before {
+  content: '•';
+  padding-right: 10px;
+}
