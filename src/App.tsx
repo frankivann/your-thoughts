@@ -30,7 +30,7 @@ export default function App() {
     const thought = formData.get('thought') as string
 
     /**
-     * Set new obj to thougts
+     * Set new obj to thoughts
      */
 
     const newThought = {
@@ -44,6 +44,30 @@ export default function App() {
 
     form.reset()
   }
+
+  const handleChange =
+    (id: string) => (event: React.ChangeEvent<HTMLTextAreaElement>) => {
+      const { value } = event.target
+
+      /**
+       * Get thought info
+       */
+
+      const newThoughts = [...thoughts]
+      const index = newThoughts.findIndex(thought => thought.id === id)
+      const thoughtInfo = newThoughts[index]
+
+      /**
+       * Set new thought
+       */
+
+      newThoughts[index] = {
+        ...thoughtInfo,
+        value,
+      }
+
+      setThoughts(newThoughts)
+    }
 
   return (
     <div className='app'>
@@ -62,7 +86,12 @@ export default function App() {
         <ul className='toughts'>
           {thoughts.map(({ id, value }) => (
             <li key={id} className='tought'>
-              {value}
+              <textarea
+                name={value}
+                id={id}
+                defaultValue={value}
+                onChange={handleChange(id)}
+              />
             </li>
           ))}
         </ul>
