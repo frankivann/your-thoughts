@@ -18,7 +18,7 @@ const initialThoughts = [
 export default function App() {
   const [thoughts, setThoughts] = useState<Thought[]>(initialThoughts)
 
-  const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
 
     /**
@@ -69,6 +69,15 @@ export default function App() {
       setThoughts(newThoughts)
     }
 
+  const handleDelete = (id: string) => () => {
+    const newThoughts = thoughts.filter(thought => thought.id !== id)
+    setThoughts(newThoughts)
+  }
+
+  const handleDeleteAll = () => {
+    setThoughts([])
+  }
+
   return (
     <div className='app'>
       <header className='header'>
@@ -77,9 +86,10 @@ export default function App() {
       </header>
 
       <main className='main'>
+        <button onClick={handleDeleteAll}>delete all</button>
         <h1 className='title'>Give me your thoughts</h1>
 
-        <form onSubmit={onSubmit}>
+        <form onSubmit={handleSubmit}>
           <input type='text' name='thought' />
         </form>
 
@@ -92,6 +102,7 @@ export default function App() {
                 defaultValue={value}
                 onChange={handleChange(id)}
               />
+              <button onClick={handleDelete(id)}>delete</button>
             </li>
           ))}
         </ul>
