@@ -2,21 +2,17 @@ import { useState } from 'react'
 import { type Thought } from './types'
 import './styles/app.css'
 
-const initialThoughts = [
-  {
-    id: '90fs',
-    timestamp: new Date().toISOString(),
-    value: 'my first thought',
-  },
-  {
-    id: '0auu',
-    timestamp: new Date().toISOString(),
-    value: 'i love programming',
-  },
-]
+function setToLocalStorage(thoughts: Thought[]) {
+  window.localStorage.setItem('_THOUGHTS_', JSON.stringify(thoughts))
+}
+
+function getStoredThoughts() {
+  const thoughts = window.localStorage.getItem('_THOUGHTS_')
+  return thoughts ? (JSON.parse(thoughts) as Thought[]) : []
+}
 
 export default function App() {
-  const [thoughts, setThoughts] = useState<Thought[]>(initialThoughts)
+  const [thoughts, setThoughts] = useState<Thought[]>(getStoredThoughts())
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
@@ -43,6 +39,7 @@ export default function App() {
     setThoughts(newThoughts)
 
     form.reset()
+    setToLocalStorage(newThoughts)
   }
 
   const handleChange =
@@ -67,15 +64,18 @@ export default function App() {
       }
 
       setThoughts(newThoughts)
+      setToLocalStorage(newThoughts)
     }
 
   const handleDelete = (id: string) => () => {
     const newThoughts = thoughts.filter(thought => thought.id !== id)
     setThoughts(newThoughts)
+    setToLocalStorage(newThoughts)
   }
 
   const handleDeleteAll = () => {
     setThoughts([])
+    setToLocalStorage([])
   }
 
   return (
