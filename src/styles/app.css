@@ -36,8 +36,3 @@
 .tought {
   padding-left: 20px;
 }
-
-.tought::before {
-  content: '•';
-  padding-right: 10px;
-}
