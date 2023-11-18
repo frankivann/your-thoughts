@@ -1,33 +1,18 @@
-import { useState } from 'react'
-import { type Thought } from './types'
+import { storeThoughts } from './services/thoughts'
+import { useThoughts } from './hooks/use-thoughts'
+import { ThoughtsList } from './components/thoughts-list'
 import './styles/app.css'
 
-function setToLocalStorage(thoughts: Thought[]) {
-  window.localStorage.setItem('_THOUGHTS_', JSON.stringify(thoughts))
-}
-
-function getStoredThoughts() {
-  const thoughts = window.localStorage.getItem('_THOUGHTS_')
-  return thoughts ? (JSON.parse(thoughts) as Thought[]) : []
-}
-
 export default function App() {
-  const [thoughts, setThoughts] = useState<Thought[]>(getStoredThoughts())
+  const { thoughts, updateThoughts, deleteThoughtById, deteleAllThoughts } =
+    useThoughts()
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
 
-    /**
-     * Get input value
-     */
-
     const form = event.target as HTMLFormElement
     const formData = new FormData(form)
     const thought = formData.get('thought') as string
-
-    /**
-     * Set new obj to thoughts
-     */
 
     const newThought = {
       id: crypto.randomUUID(),
@@ -36,46 +21,35 @@ export default function App() {
     }
 
     const newThoughts = [...thoughts, newThought]
-    setThoughts(newThoughts)
+    updateThoughts(newThoughts)
 
     form.reset()
-    setToLocalStorage(newThoughts)
+    storeThoughts(newThoughts)
   }
 
   const handleChange =
     (id: string) => (event: React.ChangeEvent<HTMLTextAreaElement>) => {
       const { value } = event.target
 
-      /**
-       * Get thought info
-       */
-
       const newThoughts = [...thoughts]
       const index = newThoughts.findIndex(thought => thought.id === id)
       const thoughtInfo = newThoughts[index]
-
-      /**
-       * Set new thought
-       */
 
       newThoughts[index] = {
         ...thoughtInfo,
         value,
       }
 
-      setThoughts(newThoughts)
-      setToLocalStorage(newThoughts)
+      updateThoughts(newThoughts)
+      storeThoughts(newThoughts)
     }
 
-  const handleDelete = (id: string) => () => {
-    const newThoughts = thoughts.filter(thought => thought.id !== id)
-    setThoughts(newThoughts)
-    setToLocalStorage(newThoughts)
+  const handleDeleteById = (id: string) => () => {
+    deleteThoughtById(id)
   }
 
   const handleDeleteAll = () => {
-    setThoughts([])
-    setToLocalStorage([])
+    deteleAllThoughts()
   }
 
   return (
@@ -93,19 +67,11 @@ export default function App() {
           <input type='text' name='thought' />
         </form>
 
-        <ul className='toughts'>
-          {thoughts.map(({ id, value }) => (
-            <li key={id} className='tought'>
-              <textarea
-                name={value}
-                id={id}
-                defaultValue={value}
-                onChange={handleChange(id)}
-              />
-              <button onClick={handleDelete(id)}>delete</button>
-            </li>
-          ))}
-        </ul>
+        <ThoughtsList
+          thoughts={thoughts}
+          handleChange={handleChange}
+          handleDeleteById={handleDeleteById}
+        />
       </main>
     </div>
   )
