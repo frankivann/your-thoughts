@@ -26,7 +26,6 @@ export default function App() {
 
         <ThoughtsList
           thoughts={thoughts}
-          updateThoughts={updateThoughts}
           deleteThoughtById={deleteThoughtById}
         />
       </main>
