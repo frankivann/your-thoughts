@@ -4,13 +4,13 @@ import { ThoughtItem } from './thought-item'
 interface Props {
   thoughts: Thought[]
   updateThoughts: (newThoughts: Thought[]) => void
-  handleDeleteById: (id: string) => () => void
+  deleteThoughtById: (id: string) => void
 }
 
 export function ThoughtsList({
   thoughts,
   updateThoughts,
-  handleDeleteById,
+  deleteThoughtById,
 }: Props) {
   return (
     <ul className='toughts'>
@@ -20,7 +20,7 @@ export function ThoughtsList({
           thought={thought}
           thoughts={thoughts}
           updateThoughts={updateThoughts}
-          handleDeleteById={handleDeleteById}
+          deleteThoughtById={deleteThoughtById}
         />
       ))}
     </ul>

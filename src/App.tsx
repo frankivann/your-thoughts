@@ -7,10 +7,6 @@ export default function App() {
   const { thoughts, updateThoughts, deleteThoughtById, deteleAllThoughts } =
     useThoughts()
 
-  const handleDeleteById = (id: string) => () => {
-    deleteThoughtById(id)
-  }
-
   const handleDeleteAll = () => {
     deteleAllThoughts()
   }
@@ -31,7 +27,7 @@ export default function App() {
         <ThoughtsList
           thoughts={thoughts}
           updateThoughts={updateThoughts}
-          handleDeleteById={handleDeleteById}
+          deleteThoughtById={deleteThoughtById}
         />
       </main>
     </div>

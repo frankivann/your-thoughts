@@ -6,15 +6,19 @@ interface Props {
   thought: Thought
   thoughts: Thought[]
   updateThoughts: (newThoughts: Thought[]) => void
-  handleDeleteById: (id: string) => () => void
+  deleteThoughtById: (id: string) => void
 }
 
 export function ThoughtItem({
   thought,
   thoughts,
   updateThoughts,
-  handleDeleteById,
+  deleteThoughtById,
 }: Props) {
+  const handleDeleteById = (id: string) => () => {
+    deleteThoughtById(id)
+  }
+
   const handleChange =
     (id: string) => (event: React.ChangeEvent<HTMLTextAreaElement>) => {
       const { value } = event.target
