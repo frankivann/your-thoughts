@@ -1,28 +1,32 @@
-import { type Thought } from '../types'
-import { ThoughtItem } from './thought-item'
+import { type Thoughts } from '../types'
 
 interface Props {
-  thoughts: Thought[]
-  updateThoughts: (newThoughts: Thought[]) => void
-  deleteThoughtById: (id: string) => void
+  thoughts: Thoughts
+  deleteThoughtById: (key: string, id: string) => void
 }
 
-export function ThoughtsList({
-  thoughts,
-  updateThoughts,
-  deleteThoughtById,
-}: Props) {
+export function ThoughtsList({ thoughts, deleteThoughtById }: Props) {
+  const entries = Object.entries(thoughts)
+
   return (
-    <ul className='toughts'>
-      {thoughts.map(thought => (
-        <ThoughtItem
-          key={thought.id}
-          thought={thought}
-          thoughts={thoughts}
-          updateThoughts={updateThoughts}
-          deleteThoughtById={deleteThoughtById}
-        />
-      ))}
-    </ul>
+    <section className='thoughts'>
+      {entries.map(([key, thoughts], index) => {
+        return (
+          <div key={index}>
+            <h2>{key}</h2>
+            <ul className='thoughts'>
+              {thoughts.map(thought => (
+                <div key={thought.id} className='thought'>
+                  <li>{thought.value}</li>
+                  <button onClick={() => deleteThoughtById(key, thought.id)}>
+                    delete
+                  </button>
+                </div>
+              ))}
+            </ul>
+          </div>
+        )
+      })}
+    </section>
   )
 }
