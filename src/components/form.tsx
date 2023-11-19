@@ -1,9 +1,9 @@
 import { storeThoughts } from '../services/thoughts'
-import { type Thought } from '../types'
+import { type Thoughts } from '../types'
 
 interface Props {
-  thoughts: Thought[]
-  updateThoughts: (newThoughts: Thought[]) => void
+  thoughts: Thoughts
+  updateThoughts: (newThoughts: Thoughts) => void
 }
 
 export function Form({ thoughts, updateThoughts }: Props) {
@@ -20,7 +20,8 @@ export function Form({ thoughts, updateThoughts }: Props) {
       value: thought,
     }
 
-    const newThoughts = [...thoughts, newThought]
+    const newThoughts = { ...thoughts }
+    newThoughts.Today = [...newThoughts.Today, newThought]
     updateThoughts(newThoughts)
 
     form.reset()
