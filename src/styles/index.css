@@ -4,10 +4,6 @@
   box-sizing: border-box;
 }
 
-body {
-  overflow: hidden;
-}
-
 a {
   text-decoration: none;
   color: inherit;
