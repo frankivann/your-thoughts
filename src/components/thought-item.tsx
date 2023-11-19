@@ -1,19 +1,37 @@
 import { type Thought } from '../types'
 import { Timestamp } from './timestamp'
+import { storeThoughts } from '../services/thoughts'
 
 interface Props {
   thought: Thought
-  handleChange: (
-    id: string
-  ) => (event: React.ChangeEvent<HTMLTextAreaElement>) => void
+  thoughts: Thought[]
+  updateThoughts: (newThoughts: Thought[]) => void
   handleDeleteById: (id: string) => () => void
 }
 
 export function ThoughtItem({
   thought,
-  handleChange,
+  thoughts,
+  updateThoughts,
   handleDeleteById,
 }: Props) {
+  const handleChange =
+    (id: string) => (event: React.ChangeEvent<HTMLTextAreaElement>) => {
+      const { value } = event.target
+
+      const newThoughts = [...thoughts]
+      const index = newThoughts.findIndex(thought => thought.id === id)
+      const thoughtInfo = newThoughts[index]
+
+      newThoughts[index] = {
+        ...thoughtInfo,
+        value,
+      }
+
+      updateThoughts(newThoughts)
+      storeThoughts(newThoughts)
+    }
+
   return (
     <li className='tought'>
       <Timestamp timestamp={thought.timestamp} />

@@ -3,15 +3,13 @@ import { ThoughtItem } from './thought-item'
 
 interface Props {
   thoughts: Thought[]
-  handleChange: (
-    id: string
-  ) => (event: React.ChangeEvent<HTMLTextAreaElement>) => void
+  updateThoughts: (newThoughts: Thought[]) => void
   handleDeleteById: (id: string) => () => void
 }
 
 export function ThoughtsList({
   thoughts,
-  handleChange,
+  updateThoughts,
   handleDeleteById,
 }: Props) {
   return (
@@ -20,7 +18,8 @@ export function ThoughtsList({
         <ThoughtItem
           key={thought.id}
           thought={thought}
-          handleChange={handleChange}
+          thoughts={thoughts}
+          updateThoughts={updateThoughts}
           handleDeleteById={handleDeleteById}
         />
       ))}
