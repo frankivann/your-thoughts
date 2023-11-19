@@ -3,3 +3,7 @@ export interface Thought {
   timestamp: string
   value: string
 }
+
+export interface Thoughts {
+  [key: string]: Thought[]
+}
