@@ -1,15 +1,35 @@
-import { type Thoughts } from '../types'
+import { format, isToday, isYesterday } from 'date-fns'
+import { type Thought, type Thoughts } from '../types'
+import { INITIAL_THOUGHTS, THOUGHTS_STORE_NAME } from '../constants'
+
+function groupThoughtsByFormatDay(onlyThoughts: Thought[]) {
+  const ThoughtsformatDay = onlyThoughts.map(thought => ({
+    ...thought,
+    formatDay: format(new Date(thought.timestamp), 'MMMM do'),
+  }))
+
+  const x = Object.groupBy(ThoughtsformatDay, (thought: Thought) => {
+    if (isToday(new Date(thought.timestamp))) return 'Today'
+    else if (isYesterday(new Date(thought.timestamp))) return 'Yesterday'
+    return thought.formatDay
+  })
+
+  return x
+}
 
 export function getStoredThoughts() {
-  const thoughts = window.localStorage.getItem('_THOUGHTS_')
+  const thoughts = window.localStorage.getItem(THOUGHTS_STORE_NAME)
+  if (thoughts == null) return INITIAL_THOUGHTS
 
-  /* Make re-order */
+  const parsedThoughts = JSON.parse(thoughts) as Thoughts
+  const onlyThoughts = Object.values(parsedThoughts).flat()
+  const isThoughtsEmpty = onlyThoughts.length === 0
 
-  /* Store the re-order */
-
-  return thoughts ? (JSON.parse(thoughts) as Thoughts) : { Today: [] }
+  return isThoughtsEmpty
+    ? INITIAL_THOUGHTS
+    : groupThoughtsByFormatDay(onlyThoughts)
 }
 
 export function storeThoughts(thoughts: Thoughts) {
-  window.localStorage.setItem('_THOUGHTS_', JSON.stringify(thoughts))
+  window.localStorage.setItem(THOUGHTS_STORE_NAME, JSON.stringify(thoughts))
 }
