@@ -1,9 +1,9 @@
-import { Thought } from '../types'
-import { Timestamp } from './timestamp'
+import { type Thought as ThoughtType } from '../types'
+import { Thought } from './thought'
 
 interface Props {
   day: string
-  thoughtsPerDay: Thought[]
+  thoughtsPerDay: ThoughtType[]
   deleteThoughtById: (day: string, id: string) => void
 }
 
@@ -15,13 +15,12 @@ export function ThoughtsListPerDay({
   return (
     <ul className='thoughts'>
       {thoughtsPerDay.map(thought => (
-        <div key={thought.id} className='thought'>
-          <Timestamp timestamp={thought.timestamp} />
-          <li>{thought.value}</li>
-          <button onClick={() => deleteThoughtById(day, thought.id)}>
-            delete
-          </button>
-        </div>
+        <Thought
+          key={crypto.randomUUID()}
+          day={day}
+          thought={thought}
+          deleteThoughtById={deleteThoughtById}
+        />
       ))}
     </ul>
   )
