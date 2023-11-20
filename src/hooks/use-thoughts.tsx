@@ -1,10 +1,6 @@
 import { type Thoughts } from '../types'
 import { useState } from 'react'
-import {
-  clearThoughts,
-  getStoredThoughts,
-  storeThoughts,
-} from '../services/thoughts'
+import { getStoredThoughts, storeThoughts } from '../services/thoughts'
 // import { format, isToday, isYesterday } from 'date-fns'
 
 export function useThoughts() {
@@ -24,8 +20,8 @@ export function useThoughts() {
   }
 
   const deteleAllThoughts = () => {
-    updateThoughts({ Today: [] })
-    clearThoughts()
+    setThoughts({ Today: [] })
+    storeThoughts({ Today: [] })
   }
 
   // const order = () => {
