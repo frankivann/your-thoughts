@@ -21,7 +21,7 @@ export function Form({ thoughts, updateThoughts }: Props) {
     }
 
     const newThoughts = { ...thoughts }
-    newThoughts.Today = [...newThoughts.Today, newThought]
+    newThoughts.Today = [newThought, ...newThoughts.Today]
     updateThoughts(newThoughts)
 
     form.reset()
