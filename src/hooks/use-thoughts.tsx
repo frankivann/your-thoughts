@@ -10,10 +10,10 @@ export function useThoughts() {
     setThoughts(newThoughts)
   }
 
-  const deleteThoughtById = (key: string, id: string) => {
+  const deleteThoughtById = (day: string, id: string) => {
     const newThoughts = { ...thoughts }
-    const newKeyThoughts = newThoughts[key].filter(thought => thought.id !== id)
-    newThoughts[key] = newKeyThoughts
+    const newKeyThoughts = newThoughts[day].filter(thought => thought.id !== id)
+    newThoughts[day] = newKeyThoughts
 
     updateThoughts(newThoughts)
     storeThoughts(newThoughts)
