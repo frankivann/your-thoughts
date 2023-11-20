@@ -21,10 +21,7 @@ export function Timestamp({ timestamp }: { timestamp: string }) {
 
   const time = () => {
     if (hours > 24) {
-      const hour = lightFormat(new Date(timestamp), 'HH')
-      const minutes = lightFormat(new Date(timestamp), 'mm')
-
-      return `${hour}:${minutes}`
+      return lightFormat(new Date(timestamp), 'HH:mm')
     } else if (hours > 0) return `${hours}h ago`
     else if (minutes > 0) return `${minutes}m ago`
     else return `${seconds}s ago`
