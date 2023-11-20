@@ -16,7 +16,7 @@ export function ThoughtsPerDay({
     <div>
       <h2>{day}</h2>
       <ThoughtsListPerDay
-        key={crypto.randomUUID()}
+        key={day}
         day={day}
         thoughtsPerDay={thoughtsPerDay}
         deleteThoughtById={deleteThoughtById}

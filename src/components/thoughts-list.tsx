@@ -11,10 +11,10 @@ export function ThoughtsList({ thoughts, deleteThoughtById }: Props) {
 
   return (
     <section className='thoughts'>
-      {entries.map(([day, thoughts], index) => {
+      {entries.map(([day, thoughts]) => {
         return (
           <ThoughtsPerDay
-            key={index}
+            key={day}
             day={day}
             thoughtsPerDay={thoughts}
             deleteThoughtById={deleteThoughtById}

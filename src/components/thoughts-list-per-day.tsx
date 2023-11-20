@@ -16,7 +16,7 @@ export function ThoughtsListPerDay({
     <ul className='thoughts'>
       {thoughtsPerDay.map(thought => (
         <Thought
-          key={crypto.randomUUID()}
+          key={thought.id}
           day={day}
           thought={thought}
           deleteThoughtById={deleteThoughtById}
