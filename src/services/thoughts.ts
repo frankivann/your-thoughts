@@ -13,7 +13,3 @@ export function getStoredThoughts() {
 export function storeThoughts(thoughts: Thoughts) {
   window.localStorage.setItem('_THOUGHTS_', JSON.stringify(thoughts))
 }
-
-export function clearThoughts() {
-  window.localStorage.removeItem('_THOUGHTS_')
-}
