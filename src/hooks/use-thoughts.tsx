@@ -1,5 +1,5 @@
-import { type Thoughts } from '../types'
 import { useState } from 'react'
+import { type Thoughts } from '../types'
 import { INITIAL_THOUGHTS } from '../constants'
 import { getStoredThoughts, storeThoughts } from '../services/thoughts'
 
@@ -12,10 +12,10 @@ export function useThoughts() {
 
   const deleteThoughtById = (day: string, id: string) => {
     const newThoughts = { ...thoughts }
-    const newKeyThoughts = newThoughts[day].filter(thought => thought.id !== id)
-    newThoughts[day] = newKeyThoughts
+    const newDayThoughts = newThoughts[day].filter(thought => thought.id !== id)
+    newThoughts[day] = newDayThoughts
 
-    updateThoughts(newThoughts)
+    setThoughts(newThoughts)
     storeThoughts(newThoughts)
   }
 
