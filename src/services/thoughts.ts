@@ -2,19 +2,30 @@ import { format, isToday, isYesterday } from 'date-fns'
 import { type Thought, type Thoughts } from '../types'
 import { INITIAL_THOUGHTS, THOUGHTS_STORE_NAME } from '../constants'
 
-function groupThoughtsByFormatDay(onlyThoughts: Thought[]) {
+function groupThoughtsByDate(onlyThoughts: Thought[]) {
   const ThoughtsformatDay = onlyThoughts.map(thought => ({
     ...thought,
     formatDay: format(new Date(thought.timestamp), 'MMMM do'),
   }))
 
-  const x = Object.groupBy(ThoughtsformatDay, (thought: Thought) => {
-    if (isToday(new Date(thought.timestamp))) return 'Today'
-    else if (isYesterday(new Date(thought.timestamp))) return 'Yesterday'
-    return thought.formatDay
+  let groupedByDate = Object.groupBy(ThoughtsformatDay, (thought: Thought) => {
+    const today = isToday(new Date(thought.timestamp))
+    const yesterday = isYesterday(new Date(thought.timestamp))
+
+    return today ? 'Today' : yesterday ? 'Yesterday' : thought.formatDay
   })
 
-  return x
+  // check if Today exists
+  const hasToday = groupedByDate.Today
+
+  if (!hasToday) {
+    groupedByDate = {
+      Today: [],
+      ...groupedByDate,
+    }
+  }
+
+  return groupedByDate
 }
 
 export function getStoredThoughts() {
@@ -25,9 +36,7 @@ export function getStoredThoughts() {
   const onlyThoughts = Object.values(parsedThoughts).flat()
   const isThoughtsEmpty = onlyThoughts.length === 0
 
-  return isThoughtsEmpty
-    ? INITIAL_THOUGHTS
-    : groupThoughtsByFormatDay(onlyThoughts)
+  return isThoughtsEmpty ? INITIAL_THOUGHTS : groupThoughtsByDate(onlyThoughts)
 }
 
 export function storeThoughts(thoughts: Thoughts) {
