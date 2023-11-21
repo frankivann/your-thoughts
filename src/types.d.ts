@@ -8,11 +8,16 @@ declare global {
   }
 }
 
+declare global {
+  interface Array<T> {
+    toSorted(compareFn?: (a: T, b: T) => number): T[]
+  }
+}
+
 export interface Thought {
   id: string
   timestamp: string
   value: string
-  formatDay?: string
 }
 
 export interface Thoughts {
