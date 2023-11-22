@@ -19,34 +19,27 @@ export function ThoughtsList({
   return (
     <section className='thoughts-list'>
       {entries.map(([day, thoughtsPerDay]) => {
-        let children = null
         const isToday = day === KEY_DAYS.TODAY
         const isEmpty = thoughtsPerDay.length === 0
+        if (!isToday && isEmpty) return
 
-        if (isToday) {
-          children = (
-            <ThoughtsPerDay
-              key={day}
-              day={day}
-              thoughtsPerDay={thoughtsPerDay}
-              deleteThoughtById={deleteThoughtById}
-            >
-              <Form thoughts={thoughts} updateThoughts={updateThoughts} />
-            </ThoughtsPerDay>
-          )
-        } else if (!isToday && isEmpty) return
-        else {
-          children = (
-            <ThoughtsPerDay
-              key={day}
-              day={day}
-              thoughtsPerDay={thoughtsPerDay}
-              deleteThoughtById={deleteThoughtById}
-            />
-          )
-        }
-
-        return children
+        return isToday ? (
+          <ThoughtsPerDay
+            key={day}
+            day={day}
+            thoughtsPerDay={thoughtsPerDay}
+            deleteThoughtById={deleteThoughtById}
+          >
+            <Form thoughts={thoughts} updateThoughts={updateThoughts} />
+          </ThoughtsPerDay>
+        ) : (
+          <ThoughtsPerDay
+            key={day}
+            day={day}
+            thoughtsPerDay={thoughtsPerDay}
+            deleteThoughtById={deleteThoughtById}
+          />
+        )
       })}
     </section>
   )
