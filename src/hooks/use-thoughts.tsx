@@ -1,12 +1,7 @@
 import { useState } from 'react'
 import { type Thoughts } from '../types'
 import { INITIAL_THOUGHTS } from '../constants'
-import {
-  getStoredThoughts,
-  groupByFormatDay,
-  sortThoughts,
-  storeThoughts,
-} from '../services/thoughts'
+import { getStoredThoughts, storeThoughts } from '../services/thoughts'
 
 export function useThoughts() {
   const [thoughts, setThoughts] = useState<Thoughts>(getStoredThoughts())
@@ -29,19 +24,19 @@ export function useThoughts() {
     storeThoughts(INITIAL_THOUGHTS)
   }
 
-  const thoughtsGroupedByFormatDay = () => {
-    const onlyThoughts = Object.values(thoughts).flat()
-    const isThoughtsEmpty = onlyThoughts.length === 0
-    if (isThoughtsEmpty) return INITIAL_THOUGHTS
+  // const thoughtsGroupedByFormatDay = () => {
+  //   const onlyThoughts = Object.values(thoughts).flat()
+  //   const isThoughtsEmpty = onlyThoughts.length === 0
+  //   if (isThoughtsEmpty) return INITIAL_THOUGHTS
 
-    const sortedToughts = sortThoughts(onlyThoughts)
-    const thoughtsGroupedByFormatDay = groupByFormatDay(sortedToughts)
+  //   const sortedToughts = sortThoughts(onlyThoughts)
+  //   const thoughtsGroupedByFormatDay = groupByFormatDay(sortedToughts)
 
-    return thoughtsGroupedByFormatDay
-  }
+  //   return thoughtsGroupedByFormatDay
+  // }
 
   return {
-    thoughts: thoughtsGroupedByFormatDay(),
+    thoughts,
     updateThoughts,
     deleteThoughtById,
     deteleAllThoughts,
