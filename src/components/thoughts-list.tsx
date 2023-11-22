@@ -12,6 +12,8 @@ export function ThoughtsList({ thoughts, deleteThoughtById }: Props) {
   return (
     <section className='thoughts'>
       {entries.map(([day, thoughts]) => {
+        // un poquito de magia que no me representa :(
+        if (day !== 'Today' && thoughts.length === 0) return
         return (
           <ThoughtsPerDay
             key={day}
