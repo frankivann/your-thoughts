@@ -1,5 +1,5 @@
 import { type Thought, type Thoughts } from '../types'
-import { isToday, isYesterday, lightFormat } from 'date-fns'
+import { isToday, isYesterday, format } from 'date-fns'
 import { INITIAL_THOUGHTS, THOUGHTS_STORE_NAME } from '../constants'
 
 export function groupByFormatDay(thoughts: Thought[]) {
@@ -11,7 +11,7 @@ export function groupByFormatDay(thoughts: Thought[]) {
       ? 'Today'
       : yesterday
       ? 'Yesterday'
-      : lightFormat(new Date(thought.timestamp), 'MMMM do')
+      : format(new Date(thought.timestamp), 'MMMM do')
   })
 
   return grouped.Today ? grouped : { Today: [], ...grouped }
@@ -25,7 +25,18 @@ export function sortThoughts(thoughts: Thought[]) {
 
 export function getStoredThoughts() {
   const thoughts = window.localStorage.getItem(THOUGHTS_STORE_NAME)
-  return thoughts ? (JSON.parse(thoughts) as Thoughts) : INITIAL_THOUGHTS
+  if (thoughts == null) return INITIAL_THOUGHTS
+
+  const parsedThoughts = JSON.parse(thoughts) as Thought
+  const onlyThoughts = Object.values(parsedThoughts).flat()
+  const isThoughtsEmpty = onlyThoughts.length === 0
+  if (isThoughtsEmpty) return INITIAL_THOUGHTS
+
+  const sortedToughts = sortThoughts(onlyThoughts)
+  const thoughtsGroupedByFormatDay = groupByFormatDay(sortedToughts)
+  return thoughtsGroupedByFormatDay
+
+  // return thoughts ? (JSON.parse(thoughts) as Thoughts) : INITIAL_THOUGHTS
 }
 
 export function storeThoughts(thoughts: Thoughts) {
