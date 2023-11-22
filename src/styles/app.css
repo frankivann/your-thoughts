@@ -1,8 +1,7 @@
 .app {
   min-height: 100vh;
-  width: min(800px, 100%);
+  width: min(1124px, 100%);
   margin: auto;
-  padding: 20px;
 }
 
 /* header */
@@ -10,29 +9,22 @@
 .header {
   display: flex;
   justify-content: space-between;
-}
-
-.logo {
-  font-weight: 400;
+  width: 100%;
+  padding: 36px;
 }
 
 /* main */
 
 .main {
-  margin-top: 50px;
+  width: min(800px, 100%);
+  margin: 0 auto;
+  padding: 50px 36px;
 }
 
-.title {
-  font-size: 1rem;
-  font-weight: 400;
+.form {
+  margin-top: 40px;
 }
 
-.thoughts {
-  margin-top: 20px;
-  color: rgb(255, 255, 255, 0.6);
-  font-size: 0.8rem;
-}
-
-.thought {
-  padding-left: 20px;
+.input {
+  display: block;
 }
