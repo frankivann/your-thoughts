@@ -13,7 +13,7 @@ export function ThoughtsListPerDay({
   deleteThoughtById,
 }: Props) {
   return (
-    <ul className='thoughts'>
+    <ul className='thoughts-list-per-day'>
       {thoughtsPerDay.map(thought => (
         <Thought
           key={thought.id}
