@@ -29,8 +29,13 @@ export function Form({ thoughts, updateThoughts }: Props) {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input type='text' name='thought' />
+    <form onSubmit={handleSubmit} className='form'>
+      <input
+        type='text'
+        name='thought'
+        className='input'
+        placeholder='Put your thoughts'
+      />
     </form>
   )
 }
