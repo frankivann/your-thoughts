@@ -1,3 +1,4 @@
+import { KEY_DAYS } from '../constants'
 import { type Thoughts } from '../types'
 import { ThoughtsPerDay } from './thoughts-per-day'
 
@@ -13,7 +14,7 @@ export function ThoughtsList({ thoughts, deleteThoughtById }: Props) {
     <section className='thoughts'>
       {entries.map(([day, thoughts]) => {
         // un poquito de magia que no me representa :(
-        if (day !== 'Today' && thoughts.length === 0) return
+        if (day !== KEY_DAYS.TODAY && thoughts.length === 0) return
         return (
           <ThoughtsPerDay
             key={day}

@@ -1,6 +1,6 @@
 import { type Thought, type Thoughts } from '../types'
 import { isToday, isYesterday, format } from 'date-fns'
-import { INITIAL_THOUGHTS, THOUGHTS_STORE_NAME } from '../constants'
+import { INITIAL_THOUGHTS, KEY_DAYS, THOUGHTS_STORE_NAME } from '../constants'
 
 export function groupByFormatDay(thoughts: Thought[]) {
   const grouped = Object.groupBy(thoughts, (thought: Thought) => {
@@ -8,9 +8,9 @@ export function groupByFormatDay(thoughts: Thought[]) {
     const yesterday = isYesterday(new Date(thought.timestamp))
 
     return today
-      ? 'Today'
+      ? KEY_DAYS.TODAY
       : yesterday
-      ? 'Yesterday'
+      ? KEY_DAYS.YESTERDAY
       : format(new Date(thought.timestamp), 'MMMM do')
   })
 
