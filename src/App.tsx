@@ -3,7 +3,7 @@ import { ThoughtsList } from './components/thoughts-list'
 import './styles/app.css'
 
 export default function App() {
-  const { thoughts, updateThoughts, deleteThoughtById } = useThoughts()
+  const { thoughts, updateThoughts } = useThoughts()
 
   return (
     <div className='app'>
@@ -13,11 +13,7 @@ export default function App() {
       </header>
 
       <main className='main'>
-        <ThoughtsList
-          thoughts={thoughts}
-          updateThoughts={updateThoughts}
-          deleteThoughtById={deleteThoughtById}
-        />
+        <ThoughtsList thoughts={thoughts} updateThoughts={updateThoughts} />
       </main>
     </div>
   )

@@ -5,25 +5,14 @@ interface Props {
   thoughtsPerDay: Thought[]
   day: string
   children?: React.ReactNode
-  deleteThoughtById: (day: string, id: string) => void
 }
 
-export function ThoughtsPerDay({
-  thoughtsPerDay,
-  day,
-  children,
-  deleteThoughtById,
-}: Props) {
+export function ThoughtsPerDay({ thoughtsPerDay, day, children }: Props) {
   return (
     <article className='thoughts-per-day'>
       <h2>{day}</h2>
       {children}
-      <ThoughtsListPerDay
-        key={day}
-        day={day}
-        thoughtsPerDay={thoughtsPerDay}
-        deleteThoughtById={deleteThoughtById}
-      />
+      <ThoughtsListPerDay key={day} thoughtsPerDay={thoughtsPerDay} />
     </article>
   )
 }

@@ -2,25 +2,14 @@ import { type Thought as ThoughtType } from '../types'
 import { Thought } from './thought'
 
 interface Props {
-  day: string
   thoughtsPerDay: ThoughtType[]
-  deleteThoughtById: (day: string, id: string) => void
 }
 
-export function ThoughtsListPerDay({
-  day,
-  thoughtsPerDay,
-  deleteThoughtById,
-}: Props) {
+export function ThoughtsListPerDay({ thoughtsPerDay }: Props) {
   return (
     <ul className='thoughts-list-per-day'>
       {thoughtsPerDay.map(thought => (
-        <Thought
-          key={thought.id}
-          day={day}
-          thought={thought}
-          deleteThoughtById={deleteThoughtById}
-        />
+        <Thought key={thought.id} thought={thought} />
       ))}
     </ul>
   )

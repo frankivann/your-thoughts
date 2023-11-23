@@ -5,15 +5,10 @@ import { ThoughtsPerDay } from './thoughts-per-day'
 
 interface Props {
   thoughts: Thoughts
-  deleteThoughtById: (day: string, id: string) => void
   updateThoughts: (newThoughts: Thoughts) => void
 }
 
-export function ThoughtsList({
-  thoughts,
-  deleteThoughtById,
-  updateThoughts,
-}: Props) {
+export function ThoughtsList({ thoughts, updateThoughts }: Props) {
   const entries = Object.entries(thoughts)
 
   return (
@@ -24,21 +19,11 @@ export function ThoughtsList({
         if (!isToday && isEmpty) return
 
         return isToday ? (
-          <ThoughtsPerDay
-            key={day}
-            day={day}
-            thoughtsPerDay={thoughtsPerDay}
-            deleteThoughtById={deleteThoughtById}
-          >
+          <ThoughtsPerDay key={day} day={day} thoughtsPerDay={thoughtsPerDay}>
             <Form thoughts={thoughts} updateThoughts={updateThoughts} />
           </ThoughtsPerDay>
         ) : (
-          <ThoughtsPerDay
-            key={day}
-            day={day}
-            thoughtsPerDay={thoughtsPerDay}
-            deleteThoughtById={deleteThoughtById}
-          />
+          <ThoughtsPerDay key={day} day={day} thoughtsPerDay={thoughtsPerDay} />
         )
       })}
     </section>
