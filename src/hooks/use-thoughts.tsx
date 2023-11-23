@@ -24,17 +24,6 @@ export function useThoughts() {
     storeThoughts(INITIAL_THOUGHTS)
   }
 
-  // const thoughtsGroupedByFormatDay = () => {
-  //   const onlyThoughts = Object.values(thoughts).flat()
-  //   const isThoughtsEmpty = onlyThoughts.length === 0
-  //   if (isThoughtsEmpty) return INITIAL_THOUGHTS
-
-  //   const sortedToughts = sortThoughts(onlyThoughts)
-  //   const thoughtsGroupedByFormatDay = groupByFormatDay(sortedToughts)
-
-  //   return thoughtsGroupedByFormatDay
-  // }
-
   return {
     thoughts,
     updateThoughts,

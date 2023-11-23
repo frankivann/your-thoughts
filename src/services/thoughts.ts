@@ -35,8 +35,6 @@ export function getStoredThoughts() {
   const sortedToughts = sortThoughts(onlyThoughts)
   const thoughtsGroupedByFormatDay = groupByFormatDay(sortedToughts)
   return thoughtsGroupedByFormatDay
-
-  // return thoughts ? (JSON.parse(thoughts) as Thoughts) : INITIAL_THOUGHTS
 }
 
 export function storeThoughts(thoughts: Thoughts) {
