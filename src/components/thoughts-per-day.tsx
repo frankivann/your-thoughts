@@ -9,9 +9,10 @@ interface Props {
 
 export function ThoughtsPerDay({ thoughtsPerDay, day, children }: Props) {
   return (
-    <article className='thoughts-per-day'>
-      <h2>{day}</h2>
+    <article>
+      <h2 className='title-day'>{day}</h2>
       {children}
+      <hr className='divider' />
       <ThoughtsListPerDay key={day} thoughtsPerDay={thoughtsPerDay} />
     </article>
   )

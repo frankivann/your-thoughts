@@ -12,9 +12,7 @@ export default function App() {
         <button>Logo</button>
       </header>
 
-      <main className='main'>
-        <ThoughtsList thoughts={thoughts} updateThoughts={updateThoughts} />
-      </main>
+      <ThoughtsList thoughts={thoughts} updateThoughts={updateThoughts} />
     </div>
   )
 }

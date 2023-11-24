@@ -12,7 +12,7 @@ export function ThoughtsList({ thoughts, updateThoughts }: Props) {
   const entries = Object.entries(thoughts)
 
   return (
-    <section className='thoughts-list'>
+    <main>
       {entries.map(([day, thoughtsPerDay]) => {
         const isToday = day === KEY_DAYS.TODAY
         const isEmpty = thoughtsPerDay.length === 0
@@ -26,6 +26,6 @@ export function ThoughtsList({ thoughts, updateThoughts }: Props) {
           <ThoughtsPerDay key={day} day={day} thoughtsPerDay={thoughtsPerDay} />
         )
       })}
-    </section>
+    </main>
   )
 }
