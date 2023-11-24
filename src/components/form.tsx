@@ -35,6 +35,7 @@ export function Form({ thoughts, updateThoughts }: Props) {
         name='thought'
         className='input'
         placeholder='Put your thoughts'
+        autoComplete='off'
       />
     </form>
   )
