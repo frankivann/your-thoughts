@@ -1,6 +1,6 @@
 .app {
   min-height: 100vh;
-  width: min(1124px, 100%);
+  width: min(1200px, 100%);
   margin: auto;
 }
 
@@ -15,16 +15,120 @@
 
 /* main */
 
-.main {
-  width: min(800px, 100%);
+main {
+  width: min(900px, 100%);
   margin: 0 auto;
-  padding: 50px 36px;
+  padding: 90px 36px 160px;
+}
+
+main::after {
+  content: '';
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(transparent, 85%, var(--bg));
+
+  /* height: 300px;
+  background: linear-gradient(rgba(0, 0, 0, 0.2), 80%, var(--bg)); */
+
+  position: fixed;
+  left: 0;
+  bottom: 0;
+
+  z-index: 1;
+  pointer-events: none;
+  user-select: none;
+}
+
+article {
+  position: relative;
+}
+
+article:not(:first-of-type) {
+  margin-top: 48px;
+}
+
+.divider {
+  background-color: #131313;
+  width: 100%;
+  height: 1px;
+
+  position: relative;
+  border: 0;
+  margin-top: 16px;
+}
+
+.divider::after {
+  content: '';
+  width: 50%;
+  height: 1px;
+
+  position: absolute;
+  background: linear-gradient(to right, #393939 0, transparent 100%);
+}
+
+.thoughts {
+  height: auto;
+}
+
+.thought {
+  position: relative;
+}
+
+textarea {
+  color: #eaeaea;
+  background-color: rgb(255, 255, 255, 0.1);
+  width: 100%;
+  height: 24px;
+
+  display: block;
+  position: relative;
+  padding: 0;
+  margin-top: 24px;
+  font-size: 16px;
+
+  border: transparent;
+  border-radius: 4px;
+  resize: none;
+}
+
+textarea:read-only {
+  cursor: default;
+}
+
+.timestamp {
+  color: var(--gray3);
+
+  position: absolute;
+  top: 50%;
+  right: 0;
+  padding: 8px;
+  font-size: 12px;
+  transform: translateY(-50%);
 }
 
 .form {
-  margin-top: 40px;
+  margin-top: 10px;
 }
 
 .input {
+  width: 100%;
+  background-color: transparent;
+
   display: block;
+  padding: 10px 0;
+  font-size: 16px;
+
+  border-radius: 8px;
+  border: transparent;
+
+  outline: none;
+  overflow: hidden;
+}
+
+@media screen and (width > 1024px) {
+  .timestamp {
+    right: unset;
+    left: -74px;
+    padding: 0;
+  }
 }
