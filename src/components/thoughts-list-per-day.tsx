@@ -7,7 +7,7 @@ interface Props {
 
 export function ThoughtsListPerDay({ thoughtsPerDay }: Props) {
   return (
-    <ul className='thoughts-list-per-day'>
+    <ul className='thoughts'>
       {thoughtsPerDay.map(thought => (
         <Thought key={thought.id} thought={thought} />
       ))}

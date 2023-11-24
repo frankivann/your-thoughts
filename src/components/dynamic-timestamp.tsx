@@ -26,5 +26,5 @@ export function DynamicTimestamp({ timestamp }: { timestamp: string }) {
       ? `${minutes}m ago`
       : `${seconds}s ago`
 
-  return <span>{formatTime}</span>
+  return <span className='timestamp'>{formatTime}</span>
 }
