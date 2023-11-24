@@ -12,7 +12,7 @@ export function Thought({ thought }: Props) {
 
   return (
     <li key={thought.id} className='thought'>
-      <textarea spellCheck={false} readOnly value={thought.value} />
+      <textarea rows={1} spellCheck={false} readOnly value={thought.value} />
       {today ? (
         <DynamicTimestamp timestamp={thought.timestamp} />
       ) : (
