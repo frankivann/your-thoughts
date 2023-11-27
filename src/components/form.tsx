@@ -50,12 +50,12 @@ export function Form({ thoughts, updateThoughts }: Props) {
 
   return (
     <textarea
-      autoFocus
       ref={textareaRef}
-      name='thought'
-      placeholder='Put your thoughts'
-      rows={1}
       value={thought}
+      name='thought'
+      placeholder='Let your thoughts out'
+      autoFocus
+      rows={1}
       onChange={handleChange}
       onKeyDown={handleKeyDown}
       style={{ height: '24px', overflowY: 'hidden' }}
