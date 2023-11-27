@@ -11,8 +11,14 @@ export function Thought({ thought }: Props) {
   const today = isToday(new Date(thought.timestamp))
 
   return (
-    <li key={thought.id} className='thought'>
-      <textarea rows={1} spellCheck={false} readOnly value={thought.value} />
+    <li className='thought'>
+      <textarea
+        data-thought-id={thought.id}
+        rows={1}
+        spellCheck={false}
+        readOnly
+        value={thought.value}
+      />
       {today ? (
         <DynamicTimestamp timestamp={thought.timestamp} />
       ) : (
