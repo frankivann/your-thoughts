@@ -25,10 +25,7 @@ main::after {
   content: '';
   width: 100%;
   height: 100%;
-  background: linear-gradient(transparent, 85%, var(--bg));
-
-  /* height: 300px;
-  background: linear-gradient(rgba(0, 0, 0, 0.2), 80%, var(--bg)); */
+  background: linear-gradient(transparent, 88%, var(--bg));
 
   position: fixed;
   left: 0;
@@ -78,6 +75,7 @@ article:not(:first-of-type) {
   padding: 0 4px;
   margin-left: -4px;
   margin-right: -4px;
+  text-wrap: pretty;
 }
 
 textarea {
