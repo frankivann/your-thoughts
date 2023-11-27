@@ -50,6 +50,7 @@ export function Form({ thoughts, updateThoughts }: Props) {
 
   return (
     <textarea
+      autoFocus
       ref={textareaRef}
       name='thought'
       placeholder='Put your thoughts'
