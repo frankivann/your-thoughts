@@ -1,4 +1,3 @@
-import { useEffect } from 'react'
 import { KEY_DAYS } from '../constants'
 import { type Thoughts } from '../types'
 import { Form } from './form'
@@ -11,16 +10,6 @@ interface Props {
 
 export function ThoughtsList({ thoughts, updateThoughts }: Props) {
   const entries = Object.entries(thoughts)
-
-  useEffect(function () {
-    const thoughtsEl: NodeListOf<HTMLTextAreaElement> =
-      document.querySelectorAll('[data-thought-id]')
-
-    thoughtsEl.forEach(element => {
-      element.style.height = 'auto'
-      element.style.height = `${element.scrollHeight}px`
-    })
-  }, [])
 
   return (
     <main>
