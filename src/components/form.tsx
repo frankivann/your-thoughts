@@ -1,3 +1,4 @@
+import { useRef, useState } from 'react'
 import { storeThoughts } from '../services/thoughts'
 import { type Thoughts } from '../types'
 
@@ -7,36 +8,56 @@ interface Props {
 }
 
 export function Form({ thoughts, updateThoughts }: Props) {
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault()
+  const [thought, setThought] = useState('')
+  const textareaRef = useRef<null | HTMLTextAreaElement>(null)
 
-    const form = event.target as HTMLFormElement
-    const formData = new FormData(form)
-    const thought = formData.get('thought') as string
+  const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
+    setThought(event.target.value)
+    const textarea = textareaRef.current
 
-    const newThought = {
-      id: crypto.randomUUID(),
-      timestamp: new Date().toISOString(),
-      value: thought,
+    if (textarea) {
+      textarea.style.height = 'auto'
+      textarea.style.height = `${textarea.scrollHeight}px`
     }
+  }
 
-    const newThoughts = { ...thoughts }
-    newThoughts.Today = [newThought, ...newThoughts.Today]
-    updateThoughts(newThoughts)
+  const handleKeyDown = (event: React.KeyboardEvent<HTMLTextAreaElement>) => {
+    const { key } = event
+    const isEnter = key === 'Enter'
+    const isEmpty = thought.trim() === ''
+    const textarea = textareaRef.current
 
-    form.reset()
-    storeThoughts(newThoughts)
+    if (isEnter && !isEmpty) {
+      event.preventDefault()
+
+      const newThought = {
+        id: crypto.randomUUID(),
+        timestamp: new Date().toISOString(),
+        value: thought,
+      }
+
+      const newThoughts = { ...thoughts }
+      newThoughts.Today = [newThought, ...newThoughts.Today]
+      updateThoughts(newThoughts)
+      storeThoughts(newThoughts)
+
+      setThought('')
+      if (textarea) {
+        textarea.style.height = '24px'
+      }
+    }
   }
 
   return (
-    <form onSubmit={handleSubmit} className='form'>
-      <input
-        type='text'
-        name='thought'
-        className='input'
-        placeholder='Put your thoughts'
-        autoComplete='off'
-      />
-    </form>
+    <textarea
+      ref={textareaRef}
+      name='thought'
+      placeholder='Put your thoughts'
+      rows={1}
+      value={thought}
+      onChange={handleChange}
+      onKeyDown={handleKeyDown}
+      style={{ height: '24px', overflowY: 'hidden' }}
+    />
   )
 }
