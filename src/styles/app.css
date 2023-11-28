@@ -71,6 +71,19 @@ article:not(:first-of-type) {
   position: relative;
 }
 
+.thought:hover > textarea {
+  background-color: rgb(255, 255, 255, 0.07);
+  color: #fff;
+}
+
+.thought:hover > span {
+  color: #fff;
+}
+
+.thought > textarea {
+  cursor: default;
+}
+
 textarea {
   color: #eaeaea;
   background-color: transparent;
@@ -91,17 +104,16 @@ textarea {
   line-height: 24px;
   text-wrap: pretty;
 
-  cursor: default;
   overflow-y: hidden;
-  transition: background-color 0.2s ease;
-}
-
-textarea:hover {
-  background-color: rgb(255, 255, 255, 0.07);
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 textarea:focus {
   background-color: rgb(255, 255, 255, 0.07);
+}
+
+textarea:focus + .timestamp {
+  color: #fff;
 }
 
 .timestamp {
@@ -111,11 +123,11 @@ textarea:focus {
   left: -84px;
   right: unset;
 
+  cursor: default;
   padding: 8px;
   font-size: 12px;
   transform: translateY(-50%);
-
-  cursor: default;
+  transition: color 0.2s ease;
 }
 
 @media (width < 1024px) {
