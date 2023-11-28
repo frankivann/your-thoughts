@@ -41,7 +41,7 @@ article {
 }
 
 article:not(:first-of-type) {
-  margin-top: 48px;
+  margin-top: 40px;
 }
 
 .divider {
@@ -71,13 +71,6 @@ article:not(:first-of-type) {
   position: relative;
 }
 
-.thought textarea {
-  padding: 0 4px;
-  margin-left: -4px;
-  margin-right: -4px;
-  text-wrap: pretty;
-}
-
 textarea {
   color: #eaeaea;
   background-color: rgb(255, 255, 255, 0.1);
@@ -88,7 +81,7 @@ textarea {
   display: block;
   position: relative;
   padding: 0;
-  margin-top: 24px;
+  margin-top: 12px;
   line-height: 24px;
   font-size: 17px;
 
@@ -97,11 +90,21 @@ textarea {
   resize: none;
   outline: none;
 
+  padding: 12px;
+  margin-left: -12px;
+  margin-right: -12px;
+  text-wrap: pretty;
+
   overflow-y: hidden;
+  transition: background-color 0.2s ease;
 }
 
 textarea:hover {
-  background-color: rgb(255, 255, 255, 0.1);
+  background-color: rgb(255, 255, 255, 0.07);
+}
+
+textarea:focus {
+  background-color: rgb(255, 255, 255, 0.07);
 }
 
 textarea:read-only {
@@ -137,13 +140,12 @@ textarea:read-only {
   border: transparent;
 
   outline: none;
-  /* overflow: hidden; */
 }
 
 @media (width < 1024px) {
   .timestamp {
     left: unset;
-    right: 8px;
+    right: 14px;
     padding: 8px;
 
     backdrop-filter: blur(8px);
