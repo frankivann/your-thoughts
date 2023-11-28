@@ -33,7 +33,7 @@ export function Form({ thoughts, updateThoughts }: Props) {
       const newThought = {
         id: crypto.randomUUID(),
         timestamp: new Date().toISOString(),
-        value: thought,
+        value: thought.trim(),
       }
 
       const newThoughts = { ...thoughts }
@@ -43,7 +43,7 @@ export function Form({ thoughts, updateThoughts }: Props) {
 
       setThought('')
       if (textarea) {
-        textarea.style.height = '24px'
+        textarea.style.height = '48px'
       }
     }
   }
@@ -58,7 +58,7 @@ export function Form({ thoughts, updateThoughts }: Props) {
       rows={1}
       onChange={handleChange}
       onKeyDown={handleKeyDown}
-      style={{ height: '24px', overflowY: 'hidden' }}
+      style={{ height: '48px', overflowY: 'hidden' }}
     />
   )
 }
