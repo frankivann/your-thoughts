@@ -30,6 +30,7 @@ export function Thought({ thought }: Props) {
         spellCheck={false}
         readOnly
         value={thought.value}
+        style={{ overflowY: 'hidden' }}
       />
       {today ? (
         <DynamicTimestamp timestamp={thought.timestamp} />
