@@ -2,30 +2,20 @@ import { isToday } from 'date-fns'
 import { type Thought } from '../types'
 import { DynamicTimestamp } from './dynamic-timestamp'
 import { StaticTimestamp } from './static-timestamp'
-import { useEffect } from 'react'
 
 interface Props {
+  day: string
   thought: Thought
+  deleteThoughtById: (day: string, id: string) => void
 }
 
-export function Thought({ thought }: Props) {
+export function Thought({ day, thought, deleteThoughtById }: Props) {
   const today = isToday(new Date(thought.timestamp))
-
-  useEffect(
-    function () {
-      const element = document.getElementById(thought.id)
-      if (element) {
-        element.style.height = 'auto'
-        element.style.height = `${element.scrollHeight}px`
-      }
-    },
-    [thought.id]
-  )
 
   return (
     <li className='thought'>
       <textarea
-        id={thought.id}
+        data-thought-id={thought.id}
         rows={1}
         spellCheck={false}
         readOnly
@@ -37,6 +27,12 @@ export function Thought({ thought }: Props) {
       ) : (
         <StaticTimestamp timestamp={thought.timestamp} />
       )}
+      <button
+        className='delete'
+        // onClick={() => deleteThoughtById(day, thought.id)}
+      >
+        delete
+      </button>
     </li>
   )
 }
