@@ -45,7 +45,7 @@ article:not(:first-of-type) {
 }
 
 .divider {
-  background-color: #131313;
+  background-color: #1e1e1e;
   width: 100%;
   height: 1px;
 
@@ -54,14 +54,14 @@ article:not(:first-of-type) {
   margin-top: 16px;
 }
 
-.divider::after {
+/* .divider::after {
   content: '';
   width: 50%;
   height: 1px;
 
   position: absolute;
   background: linear-gradient(to right, #393939 0, transparent 100%);
-}
+} */
 
 .thoughts {
   height: auto;
@@ -85,7 +85,7 @@ article:not(:first-of-type) {
 }
 
 textarea {
-  color: #eaeaea;
+  color: #bababa;
   background-color: transparent;
   width: 100%;
 
@@ -113,6 +113,10 @@ textarea {
   background-color: rgb(255, 255, 255, 0.07);
 }
 
+textarea::placeholder {
+  color: #777;
+}
+
 textarea:focus {
   background-color: rgb(255, 255, 255, 0.07);
 }
@@ -129,7 +133,7 @@ textarea:focus + .timestamp {
   right: unset;
 
   cursor: default;
-  padding: 4px 8px;
+  padding: 8px;
   font-size: 12px;
   transform: translateY(-50%);
   transition: color 0.4s ease;
@@ -144,7 +148,7 @@ textarea:focus + .timestamp {
   left: unset;
   right: -64px;
 
-  padding: 4px 8px;
+  padding: 8px;
   font-size: 12px;
   transform: translateY(-50%);
   transition: color 0.4s ease;
