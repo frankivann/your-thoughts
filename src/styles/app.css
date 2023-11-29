@@ -71,16 +71,16 @@ article:not(:first-of-type) {
   position: relative;
 }
 
-.thought:hover > textarea {
+.thought:hover textarea {
   background-color: rgb(255, 255, 255, 0.07);
   color: #fff;
 }
 
-.thought:hover > span {
+.thought:hover span {
   color: #fff;
 }
 
-.thought > textarea {
+.thought textarea {
   cursor: default;
 }
 
@@ -97,15 +97,20 @@ textarea {
   outline: none;
   border-radius: 4px;
 
-  padding: 12px;
-  margin: 12px -12px 0;
+  padding: 12px 0;
+  margin-top: 12px;
+  /* margin: 12px -12px 0; */
 
   font-size: 17px;
   line-height: 24px;
   text-wrap: pretty;
 
   overflow-y: hidden;
-  transition: background-color 0.2s ease, color 0.2s ease;
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+#textarea-root:hover {
+  background-color: rgb(255, 255, 255, 0.07);
 }
 
 textarea:focus {
@@ -124,10 +129,29 @@ textarea:focus + .timestamp {
   right: unset;
 
   cursor: default;
-  padding: 8px;
+  padding: 4px 8px;
   font-size: 12px;
   transform: translateY(-50%);
-  transition: color 0.2s ease;
+  transition: color 0.4s ease;
+}
+
+.delete {
+  color: #777;
+  background-color: transparent;
+  border: transparent;
+  position: absolute;
+  top: 50%;
+  left: unset;
+  right: -64px;
+
+  padding: 4px 8px;
+  font-size: 12px;
+  transform: translateY(-50%);
+  transition: color 0.4s ease;
+}
+
+.delete:hover {
+  color: #f33f3f;
 }
 
 @media (width < 1024px) {
