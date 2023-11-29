@@ -18,15 +18,18 @@ export function ThoughtsList({
   const entries = Object.entries(thoughts)
 
   // make height auto resize based on content
-  useEffect(function () {
-    const Allthoughts: NodeListOf<HTMLTextAreaElement> =
-      document.querySelectorAll('[data-thought-id]')
+  useEffect(
+    function () {
+      const Allthoughts: NodeListOf<HTMLTextAreaElement> =
+        document.querySelectorAll('[data-thought-id]')
 
-    Allthoughts.forEach(element => {
-      element.style.height = 'auto'
-      element.style.height = `${element.scrollHeight}px`
-    })
-  }, [])
+      Allthoughts.forEach(element => {
+        element.style.height = 'auto'
+        element.style.height = `${element.scrollHeight}px`
+      })
+    },
+    [thoughts]
+  )
 
   return (
     <main>
