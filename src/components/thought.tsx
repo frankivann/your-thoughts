@@ -20,7 +20,7 @@ export function Thought({ day, thought, deleteThoughtById }: Props) {
         spellCheck={false}
         readOnly
         value={thought.value}
-        style={{ overflowY: 'hidden' }}
+        style={{ overflowY: 'hidden', height: 'auto' }}
       />
       {today ? (
         <DynamicTimestamp timestamp={thought.timestamp} />
