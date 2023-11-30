@@ -16,7 +16,7 @@
 /* main */
 
 main {
-  max-width: 950px;
+  max-width: 970px;
   margin: 0 auto;
   padding: 90px 36px 160px;
 }
@@ -44,24 +44,20 @@ article:not(:first-of-type) {
   margin-top: 40px;
 }
 
+h2 {
+  margin-left: 12px;
+}
+
 .divider {
-  background-color: #1e1e1e;
-  width: 100%;
+  background-color: #1f1f1f;
+  width: 97%;
+  margin: auto;
   height: 1px;
 
   position: relative;
   border: 0;
   margin-top: 16px;
 }
-
-/* .divider::after {
-  content: '';
-  width: 50%;
-  height: 1px;
-
-  position: absolute;
-  background: linear-gradient(to right, #393939 0, transparent 100%);
-} */
 
 .thoughts {
   height: auto;
@@ -85,7 +81,7 @@ article:not(:first-of-type) {
 }
 
 textarea {
-  color: #bababa;
+  color: #bfbfbf;
   background-color: transparent;
   width: 100%;
 
@@ -95,11 +91,10 @@ textarea {
   border: none;
   resize: none;
   outline: none;
-  border-radius: 4px;
+  border-radius: 8px;
 
-  padding: 12px 0;
+  padding: 12px;
   margin-top: 12px;
-  /* margin: 12px -12px 0; */
 
   font-size: 17px;
   line-height: 24px;
@@ -119,6 +114,7 @@ textarea::placeholder {
 
 textarea:focus {
   background-color: rgb(255, 255, 255, 0.07);
+  color: #fff;
 }
 
 textarea:focus + .timestamp {
@@ -129,7 +125,7 @@ textarea:focus + .timestamp {
   color: #777;
   position: absolute;
   top: 50%;
-  left: -84px;
+  left: -80px;
   right: unset;
 
   cursor: default;
@@ -146,7 +142,7 @@ textarea:focus + .timestamp {
   position: absolute;
   top: 50%;
   left: unset;
-  right: -64px;
+  right: -80px;
 
   padding: 8px;
   font-size: 12px;
@@ -155,15 +151,32 @@ textarea:focus + .timestamp {
 }
 
 .delete:hover {
-  color: #f33f3f;
+  color: #f03030;
 }
 
 @media (width < 1024px) {
   .timestamp {
     left: unset;
-    right: 14px;
+    top: unset;
+    bottom: 0;
 
+    padding: 8px 12px;
     backdrop-filter: blur(8px);
-    border-radius: 8px;
+    transform: translateY(0%);
+  }
+
+  .thought:hover .timestamp {
+    color: #777;
+  }
+
+  .thoughts textarea {
+    padding-bottom: 40px;
+  }
+
+  .delete {
+    display: none;
+    user-select: none;
+    pointer-events: none;
+    opacity: 0;
   }
 }
