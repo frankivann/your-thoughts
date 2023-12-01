@@ -42,7 +42,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background-color 0.4s ease;
+  transition: background-color 0.2s ease;
 }
 
 .dropdown-wrapper {
@@ -55,7 +55,7 @@
   pointer-events: none;
   user-select: none;
   opacity: 0;
-  transition: opacity 0.4s ease;
+  transition: opacity 0.2s ease;
 }
 
 .menu-ul {
