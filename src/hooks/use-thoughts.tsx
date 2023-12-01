@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { type Thoughts } from '../types'
-import { INITIAL_THOUGHTS } from '../constants'
+import { INITIAL_THOUGHTS, KEY_DAYS } from '../constants'
 import { getStoredThoughts, storeThoughts } from '../services/thoughts'
 
 export function useThoughts() {
@@ -14,6 +14,13 @@ export function useThoughts() {
     const newThoughts = { ...thoughts }
     const newDayThoughts = newThoughts[day].filter(thought => thought.id !== id)
     newThoughts[day] = newDayThoughts
+
+    const isToday = day === KEY_DAYS.TODAY
+    const isEmpty = newDayThoughts.length === 0
+
+    if (!isToday && isEmpty) {
+      delete newThoughts[day]
+    }
 
     setThoughts(newThoughts)
     storeThoughts(newThoughts)
