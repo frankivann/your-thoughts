@@ -35,8 +35,8 @@ export function ThoughtsList({
     <main>
       {entries.map(([day, thoughtsPerDay]) => {
         const isToday = day === KEY_DAYS.TODAY
-        const isEmpty = thoughtsPerDay.length === 0
-        if (!isToday && isEmpty) return
+        // const isEmpty = thoughtsPerDay.length === 0
+        // if (!isToday && isEmpty) return
 
         return isToday ? (
           <ThoughtsPerDay
