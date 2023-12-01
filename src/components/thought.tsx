@@ -20,6 +20,7 @@ export function Thought({ day, thought, deleteThoughtById }: Props) {
         spellCheck={false}
         readOnly
         value={thought.value}
+        placeholder='Erase with Backspace ⌫'
         style={{ overflowY: 'hidden', height: 'auto' }}
       />
       {today ? (
@@ -29,7 +30,7 @@ export function Thought({ day, thought, deleteThoughtById }: Props) {
       )}
       <button
         className='delete'
-        // onClick={() => deleteThoughtById(day, thought.id)}
+        onClick={() => deleteThoughtById(day, thought.id)}
       >
         delete
       </button>
