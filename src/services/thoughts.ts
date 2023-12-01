@@ -25,11 +25,16 @@ export function sortThoughts(thoughts: Thought[]) {
 
 export function getStoredThoughts() {
   const thoughts = window.localStorage.getItem(THOUGHTS_STORE_NAME)
-  if (thoughts == null) return INITIAL_THOUGHTS
+
+  if (thoughts == null) {
+    storeThoughts(INITIAL_THOUGHTS)
+    return INITIAL_THOUGHTS
+  }
 
   const parsedThoughts = JSON.parse(thoughts) as Thought
   const onlyThoughts = Object.values(parsedThoughts).flat()
   const isThoughtsEmpty = onlyThoughts.length === 0
+
   if (isThoughtsEmpty) return INITIAL_THOUGHTS
 
   const sortedToughts = sortThoughts(onlyThoughts)
