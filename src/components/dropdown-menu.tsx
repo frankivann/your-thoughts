@@ -1,14 +1,15 @@
 import { useEffect, useState } from 'react'
 import { BoxIcon, HamburgerIcon, MoonIcon } from './icons'
-import { getThemeMode, storeTheme } from '../services/theme'
+import { getThemeMode, storeThemeMode } from '../services/theme'
 import { THEME_MODES } from '../constants'
+import { type ThemeMode } from '../types'
 
 interface Props {
   deteleAllThoughts: () => void
 }
 
 export function DropdownMenu({ deteleAllThoughts }: Props) {
-  const [theme, setTheme] = useState(getThemeMode())
+  const [theme, setTheme] = useState<ThemeMode>(getThemeMode())
 
   useEffect(
     function () {
@@ -16,10 +17,10 @@ export function DropdownMenu({ deteleAllThoughts }: Props) {
 
       if (theme === THEME_MODES.DARK) {
         html.setAttribute('data-theme', THEME_MODES.DARK)
-        storeTheme(THEME_MODES.DARK)
+        storeThemeMode(THEME_MODES.DARK)
       } else {
         html.setAttribute('data-theme', THEME_MODES.LIGHT)
-        storeTheme(THEME_MODES.LIGHT)
+        storeThemeMode(THEME_MODES.LIGHT)
       }
     },
     [theme]
