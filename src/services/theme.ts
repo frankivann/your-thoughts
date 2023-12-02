@@ -1,20 +1,21 @@
 import { THEME_MODES, THOUGHTS_THEME_NAME } from '../constants'
+import { type ThemeMode } from '../types'
 
 export function getThemeMode() {
-  const theme = window.localStorage.getItem(THOUGHTS_THEME_NAME)
+  const theme = window.localStorage.getItem(THOUGHTS_THEME_NAME) as ThemeMode
   if (theme) return theme
 
   const isDark = window.matchMedia('(prefers-color-scheme: dark)').matches
 
   if (isDark) {
-    storeTheme(THEME_MODES.DARK)
+    storeThemeMode(THEME_MODES.DARK)
     return THEME_MODES.DARK
   } else {
-    storeTheme(THEME_MODES.LIGHT)
+    storeThemeMode(THEME_MODES.LIGHT)
     return THEME_MODES.LIGHT
   }
 }
 
-export function storeTheme(theme: string) {
+export function storeThemeMode(theme: ThemeMode) {
   window.localStorage.setItem(THOUGHTS_THEME_NAME, theme)
 }
