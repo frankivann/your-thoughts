@@ -1,11 +1,7 @@
-import { DropdownMenu } from './dropdown-menu'
-import { LogoIcon } from './icons'
+interface Props {
+  children: React.ReactNode
+}
 
-export function Header() {
-  return (
-    <header className='header'>
-      <LogoIcon />
-      <DropdownMenu />
-    </header>
-  )
+export function Header({ children }: Props) {
+  return <header className='header'>{children}</header>
 }
