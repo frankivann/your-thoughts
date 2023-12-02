@@ -1,3 +1,5 @@
+import { THEME_MODES } from './constants'
+
 /* Esto me lo acabo de inventar jajajaka */
 declare global {
   interface Object {
@@ -23,3 +25,5 @@ export interface Thought {
 export interface Thoughts {
   [key: string]: Thought[]
 }
+
+export type ThemeMode = (typeof THEME_MODES)[keyof typeof THEME_MODES]
