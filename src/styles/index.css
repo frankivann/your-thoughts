@@ -30,31 +30,37 @@ li {
 }
 
 :root {
-  --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-    Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  --font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 
   --bg: #000;
   --fg: #fff;
-  --gray9: #f8f9fa;
-  --gray8: #f4f5f6;
-  --gray7: #e9ecef;
-  --gray6: #dee2e6;
-  --gray5: #ced4da;
-  --gray4: #adb5bd;
-  --gray3: #868e96;
-  --gray2: #202021;
-  --gray1: #111;
-  --gray0: #0b0a0f;
-  --menu-bg: #191919;
-  --highlight: #191919;
-  --shadow-small: 0px 4px 8px rgba(0, 0, 0, 0.1);
-  --fade-top-gradient: linear-gradient(var(--bg), 80%, rgba(0, 0, 0, 0.1));
-  --fade-bottom-gradient: linear-gradient(rgba(0, 0, 0, 0.1), 80%, var(--bg));
+  --gray0: #101010;
+  --gray1: #111111;
+  --gray2: #171717;
+  --gray3: #202020;
+  --gray4: #1f1f1f;
+  --gray5: #777777;
+  --gray6: #d1d1d1;
+  --danger: #fc3636;
+  --shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 
   color-scheme: light dark;
-
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+html[data-theme='light'] {
+  --bg: #fff;
+  --fg: #000;
+  --gray0: #ffffff; /* bg dropdown */
+  --gray1: #f3f3f3; /* hover textarea */
+  --gray2: #f1f1f1; /* hover hamburger */
+  --gray3: #f1f1f1; /* hover button dropdown */
+  --gray4: #eeeeee; /* divider */
+  --gray5: #a8a8a8; /* time and placeholder */
+  --gray6: #515151; /* text textarea */
+  --danger: #f81e1e;
 }
