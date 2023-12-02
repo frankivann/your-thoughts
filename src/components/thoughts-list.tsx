@@ -1,8 +1,8 @@
 import { useEffect } from 'react'
 import { KEY_DAYS } from '../constants'
 import { type Thoughts } from '../types'
-import { Form } from './form'
 import { ThoughtsPerDay } from './thoughts-per-day'
+import { Form } from './form'
 
 interface Props {
   thoughts: Thoughts
@@ -35,8 +35,6 @@ export function ThoughtsList({
     <main>
       {entries.map(([day, thoughtsPerDay]) => {
         const isToday = day === KEY_DAYS.TODAY
-        // const isEmpty = thoughtsPerDay.length === 0
-        // if (!isToday && isEmpty) return
 
         return isToday ? (
           <ThoughtsPerDay
