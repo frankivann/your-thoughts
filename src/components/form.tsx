@@ -55,7 +55,7 @@ export function Form({ thoughts, updateThoughts }: Props) {
       value={thought}
       name='thought'
       placeholder='Let your thoughts out'
-      // autoFocus
+      autoFocus
       rows={1}
       onChange={handleChange}
       onKeyDown={handleKeyDown}
