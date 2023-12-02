@@ -19,20 +19,18 @@
 .menu {
   position: relative;
   border-radius: 6px;
-  transition: background-color 0.4s ease;
 }
 
 .menu:hover .toggle {
-  background-color: rgb(255, 255, 255, 0.1);
+  background-color: var(--gray2);
 }
 
 .menu:hover .dropdown-wrapper {
-  pointer-events: auto;
-  user-select: auto;
-  opacity: 1;
+  --display: block;
 }
 
 .toggle {
+  color: inherit;
   background-color: transparent;
 
   border: transparent;
@@ -51,15 +49,11 @@
   right: 0;
 
   padding-top: 12px;
-
-  pointer-events: none;
-  user-select: none;
-  opacity: 0;
-  transition: opacity 0.2s ease;
+  display: var(--display, none);
 }
 
 .menu-ul {
-  background-color: rgb(255, 255, 255, 0.07);
+  background-color: var(--gray0);
   width: max-content;
   padding: 4px;
 
@@ -67,8 +61,9 @@
   flex-direction: column;
   gap: 4px;
 
-  border: 1px solid #1f1f1f;
+  border: 1px solid var(--gray4);
   border-radius: 8px;
+  box-shadow: var(--shadow);
 }
 
 .menu-li {
@@ -80,13 +75,14 @@
 }
 
 .menu-divider {
-  background-color: #1f1f1f;
+  background-color: var(--gray4);
   width: 100%;
   height: 1px;
   border: 0;
 }
 
 .menu-button {
+  color: var(--fg);
   background-color: transparent;
   width: 100%;
   padding: 10px;
@@ -100,12 +96,10 @@
   border-radius: 4px;
   text-align: start;
   font-size: 12px;
-
-  transition: background-color 0.4s ease;
 }
 
 .menu-button:hover {
-  background-color: rgb(255, 255, 255, 0.05);
+  background-color: var(--gray3);
 }
 
 /* main */
@@ -144,7 +138,7 @@ h2 {
 }
 
 .divider {
-  background-color: #1f1f1f;
+  background-color: var(--gray4);
   width: 97%;
   margin: auto;
   height: 1px;
@@ -163,12 +157,12 @@ h2 {
 }
 
 .thought:hover textarea {
-  background-color: rgb(255, 255, 255, 0.07);
-  color: #fff;
+  background-color: var(--gray1);
+  color: var(--fg);
 }
 
 .thought:hover span {
-  color: #fff;
+  color: var(--fg);
 }
 
 .thought textarea {
@@ -176,7 +170,7 @@ h2 {
 }
 
 textarea {
-  color: #d1d1d1;
+  color: var(--gray6);
   background-color: transparent;
   width: 100%;
 
@@ -200,24 +194,24 @@ textarea {
 }
 
 #textarea-root:hover {
-  background-color: rgb(255, 255, 255, 0.07);
+  background-color: var(--gray1);
 }
 
 textarea::placeholder {
-  color: #777;
+  color: var(--gray5);
 }
 
 textarea:focus {
-  background-color: rgb(255, 255, 255, 0.07);
-  color: #fff;
+  background-color: var(--gray1);
+  color: var(--fg);
 }
 
 textarea:focus + .timestamp {
-  color: #fff;
+  color: var(--fg);
 }
 
 .timestamp {
-  color: #777;
+  color: var(--gray5);
   position: absolute;
   top: 50%;
   left: -80px;
@@ -231,7 +225,7 @@ textarea:focus + .timestamp {
 }
 
 .delete {
-  color: #777;
+  color: var(--gray5);
   background-color: transparent;
   border: transparent;
   position: absolute;
@@ -246,7 +240,12 @@ textarea:focus + .timestamp {
 }
 
 .delete:hover {
-  color: #fc3636;
+  color: var(--danger);
+}
+
+.delete:focus {
+  outline: 1.5px solid var(--danger);
+  border-radius: 4px;
 }
 
 @media (width < 1024px) {
@@ -261,7 +260,7 @@ textarea:focus + .timestamp {
   }
 
   .thought:hover .timestamp {
-    color: #777;
+    color: var(--gray5);
   }
 
   .thoughts textarea {
