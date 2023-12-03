@@ -26,7 +26,7 @@ export function sortThoughts(thoughts: Thought[]) {
 export function getStoredThoughts() {
   const thoughts = window.localStorage.getItem(THOUGHTS_STORE_NAME)
 
-  if (thoughts == null) {
+  if (!thoughts) {
     storeThoughts(INITIAL_THOUGHTS)
     return INITIAL_THOUGHTS
   }
