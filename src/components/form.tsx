@@ -9,7 +9,7 @@ interface Props {
 
 export function Form({ thoughts, updateThoughts }: Props) {
   const [thought, setThought] = useState('')
-  const textareaRef = useRef<null | HTMLTextAreaElement>(null)
+  const textareaRef = useRef<HTMLTextAreaElement | null>(null)
 
   const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
     setThought(event.target.value)
@@ -56,6 +56,7 @@ export function Form({ thoughts, updateThoughts }: Props) {
       name='thought'
       placeholder='Let your thoughts out'
       autoFocus
+      spellCheck={false}
       rows={1}
       onChange={handleChange}
       onKeyDown={handleKeyDown}
