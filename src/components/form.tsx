@@ -9,6 +9,7 @@ interface Props {
 
 export function Form({ thoughts, updateThoughts }: Props) {
   const [thought, setThought] = useState('')
+  const [shiftPressed, setShiftPressed] = useState(false)
   const textareaRef = useRef<HTMLTextAreaElement | null>(null)
 
   const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
@@ -21,13 +22,22 @@ export function Form({ thoughts, updateThoughts }: Props) {
     }
   }
 
+  const handleKeyUp = (event: React.KeyboardEvent<HTMLTextAreaElement>) => {
+    const { key } = event
+    if (key === 'Shift') setShiftPressed(false)
+  }
+
   const handleKeyDown = (event: React.KeyboardEvent<HTMLTextAreaElement>) => {
     const { key } = event
     const isEnter = key === 'Enter'
+    const isShift = key === 'Shift'
     const isEmpty = thought.trim() === ''
     const textarea = textareaRef.current
 
-    if (isEnter && !isEmpty) {
+    if (isEmpty) return
+    if (isShift) setShiftPressed(true)
+
+    if (isEnter && !shiftPressed) {
       event.preventDefault()
 
       const newThought = {
@@ -59,6 +69,7 @@ export function Form({ thoughts, updateThoughts }: Props) {
       spellCheck={false}
       rows={1}
       onChange={handleChange}
+      onKeyUp={handleKeyUp}
       onKeyDown={handleKeyDown}
       style={{ height: '48px', overflowY: 'hidden' }}
     />
