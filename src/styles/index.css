@@ -36,10 +36,10 @@ li {
   --bg: #040404;
   --fg: #fff;
   --gray0: #101010; /* bg dropdown */
-  --gray1: #101010; /* hover textarea */
+  --gray1: #151515; /* hover textarea */
   --gray2: #161616; /* hover hamburger */
-  --gray3: #1f1f1f; /* hover button dropdown */
-  --gray4: #202020; /* divider */
+  --gray3: #1a1a1a; /* hover button dropdown */
+  --gray4: #222222; /* divider an kbd */
   --gray5: #666666; /* time and placeholder */
   --gray6: #e2e2e2; /* text textarea */
   --gray7: #f5f5f5; /* h2 */
@@ -60,7 +60,7 @@ html[data-theme='light'] {
   --gray1: #e9e9e9; /* hover textarea */
   --gray2: #e8e8e8; /* hover hamburger */
   --gray3: #e7e7e7; /* hover button dropdown */
-  --gray4: #dcdcdc; /* divider */
+  --gray4: #dcdcdc; /* divider an kbd */
   --gray5: #a6a6a6; /* time and placeholder */
   --gray6: #454545; /* text textarea */
   --gray7: #1f1f1f; /* h2 */

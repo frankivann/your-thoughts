@@ -70,7 +70,7 @@
 }
 
 .svg-icon {
-  margin-left: 8px;
+  color: var(--gray6);
 }
 
 .menu-divider {
@@ -89,7 +89,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 8px;
+  gap: 12px;
 
   border: transparent;
   border-radius: 4px;
@@ -99,6 +99,25 @@
 
 .menu-button:hover {
   background-color: var(--gray3);
+}
+
+kbd {
+  background-color: var(--gray4);
+  min-width: 16px;
+  height: 16px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid var(--gray4);
+  border-radius: 4px;
+
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 10px;
+
+  /* margin-left: 16px; */
 }
 
 /* main */
@@ -113,7 +132,7 @@ main::after {
   content: '';
   width: 100%;
   height: 100%;
-  background: linear-gradient(transparent, 91%, var(--bg));
+  background: linear-gradient(transparent, 98%, var(--bg));
 
   position: fixed;
   left: 0;
@@ -243,7 +262,7 @@ textarea:focus + .timestamp {
   color: var(--danger);
 }
 
-.delete:focus {
+.delete:focus-visible {
   outline: 1.5px solid var(--danger);
   border-radius: 4px;
 }
