@@ -1,8 +1,7 @@
-import { useEffect } from 'react'
-import { KEY_DAYS } from '../constants'
 import { type Thoughts } from '../types'
-import { ThoughtsPerDay } from './thoughts-per-day'
+import { KEY_DAYS } from '../constants'
 import { Form } from './form'
+import { ThoughtsPerDay } from './thoughts-per-day'
 
 interface Props {
   thoughts: Thoughts
@@ -17,20 +16,6 @@ export function ThoughtsList({
 }: Props) {
   const entries = Object.entries(thoughts)
 
-  // make height auto resize based on content
-  useEffect(
-    function () {
-      const Allthoughts: NodeListOf<HTMLTextAreaElement> =
-        document.querySelectorAll('[data-thought-id]')
-
-      Allthoughts.forEach(element => {
-        element.style.height = 'auto'
-        element.style.height = `${element.scrollHeight}px`
-      })
-    },
-    [thoughts]
-  )
-
   return (
     <main>
       {entries.map(([day, thoughtsPerDay]) => {
@@ -38,7 +23,7 @@ export function ThoughtsList({
 
         return isToday ? (
           <ThoughtsPerDay
-            key={crypto.randomUUID()}
+            key={day}
             day={day}
             thoughtsPerDay={thoughtsPerDay}
             deleteThoughtById={deleteThoughtById}
@@ -47,7 +32,7 @@ export function ThoughtsList({
           </ThoughtsPerDay>
         ) : (
           <ThoughtsPerDay
-            key={crypto.randomUUID()}
+            key={day}
             day={day}
             thoughtsPerDay={thoughtsPerDay}
             deleteThoughtById={deleteThoughtById}
