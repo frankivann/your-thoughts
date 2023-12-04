@@ -227,15 +227,19 @@ textarea {
 
 .emoji-picker-button {
   position: absolute;
-  top: 50%;
-  right: 12px;
+  top: 8px;
+  right: 8px;
   left: unset;
   bottom: unset;
 
+  margin: auto;
+
   border: transparent;
   padding: 6px;
+}
 
-  transform: translateY(-50%);
+#textarea-root {
+  padding-right: 60px;
 }
 
 #textarea-root:hover {
