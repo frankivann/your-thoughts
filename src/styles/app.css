@@ -212,6 +212,32 @@ textarea {
   transition: background-color 0.4s ease, color 0.4s ease;
 }
 
+.field {
+  position: relative;
+}
+
+.emoji-picker-wrapper {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  left: unset;
+  bottom: unset;
+  z-index: 2;
+}
+
+.emoji-picker-button {
+  position: absolute;
+  top: 50%;
+  right: 12px;
+  left: unset;
+  bottom: unset;
+
+  border: transparent;
+  padding: 6px;
+
+  transform: translateY(-50%);
+}
+
 #textarea-root:hover {
   background-color: var(--gray1);
 }
