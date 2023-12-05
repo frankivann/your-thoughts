@@ -21,14 +21,6 @@
   border-radius: 6px;
 }
 
-.menu:hover .toggle {
-  background-color: var(--gray2);
-}
-
-.menu:hover .dropdown-wrapper {
-  --display: block;
-}
-
 .toggle {
   color: inherit;
   background-color: transparent;
@@ -42,19 +34,19 @@
   justify-content: center;
 }
 
-.dropdown-wrapper {
-  position: absolute;
-  top: 100%;
-  right: 0;
-
-  padding-top: 12px;
-  display: var(--display, none);
+.toggle:hover {
+  background-color: var(--gray2);
 }
 
 .menu-ul {
   background-color: var(--gray0);
   width: max-content;
   padding: 4px;
+
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 12px;
 
   display: flex;
   flex-direction: column;
