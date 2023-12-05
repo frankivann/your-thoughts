@@ -1,7 +1,6 @@
 import { useRef, useState } from 'react'
 import { storeThoughts } from '../services/thoughts'
 import { type Thoughts } from '../types'
-import { EmojiPicker } from './emoji-picker'
 
 interface Props {
   thoughts: Thoughts
@@ -60,22 +59,19 @@ export function Form({ thoughts, updateThoughts }: Props) {
   }
 
   return (
-    <div className='field'>
-      <textarea
-        id='textarea-root'
-        ref={textareaRef}
-        value={thought}
-        name='thought'
-        placeholder='Let your thoughts out'
-        autoFocus
-        rows={1}
-        spellCheck={false}
-        onChange={handleChange}
-        onKeyUp={handleKeyUp}
-        onKeyDown={handleKeyDown}
-        style={{ height: '48px', overflowY: 'hidden' }}
-      />
-      <EmojiPicker setThought={setThought} textareaRef={textareaRef.current} />
-    </div>
+    <textarea
+      id='textarea-root'
+      ref={textareaRef}
+      value={thought}
+      name='thought'
+      placeholder='Let your thoughts out'
+      autoFocus
+      rows={1}
+      spellCheck={false}
+      onChange={handleChange}
+      onKeyUp={handleKeyUp}
+      onKeyDown={handleKeyDown}
+      style={{ height: '48px', overflowY: 'hidden' }}
+    />
   )
 }
