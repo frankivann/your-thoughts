@@ -156,6 +156,21 @@ h2 {
   color: var(--gray7);
 }
 
+#textarea-root:hover {
+  background-color: var(--gray1);
+}
+
+#textarea-root {
+  padding-right: 60px;
+  /* background-color: var(--gray1); */
+}
+
+/* #textarea-root:not(:focus) {
+  background-color: #0a0a0a;
+} */
+
+/* thoughts */
+
 .divider {
   background-color: var(--gray4);
   width: 97%;
@@ -210,40 +225,6 @@ textarea {
 
   overflow-y: hidden;
   transition: background-color 0.4s ease, color 0.4s ease;
-}
-
-.field {
-  position: relative;
-}
-
-.emoji-picker-wrapper {
-  position: absolute;
-  top: 100%;
-  right: 0;
-  left: unset;
-  bottom: unset;
-  z-index: 2;
-}
-
-.emoji-picker-button {
-  position: absolute;
-  top: 8px;
-  right: 8px;
-  left: unset;
-  bottom: unset;
-
-  margin: auto;
-
-  border: transparent;
-  padding: 6px;
-}
-
-#textarea-root {
-  padding-right: 60px;
-}
-
-#textarea-root:hover {
-  background-color: var(--gray1);
 }
 
 textarea::placeholder {
