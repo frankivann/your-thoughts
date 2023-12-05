@@ -33,14 +33,15 @@ export function useTheme() {
       const handleKeydown = (event: KeyboardEvent) => {
         const { key } = event
         const { activeElement } = window.document
+
         const textareaRoot = window.document.getElementById('textarea-root')
-        let isFormActive = false
+        let isFormTarget = false
 
         if (activeElement && textareaRoot) {
-          isFormActive = textareaRoot === activeElement
+          isFormTarget = textareaRoot.contains(activeElement)
         }
 
-        if (KEYDOWN_THEME.includes(key) && !isFormActive) {
+        if (KEYDOWN_THEME.includes(key) && !isFormTarget) {
           toggleTheme()
         }
       }
