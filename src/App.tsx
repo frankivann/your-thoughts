@@ -2,7 +2,7 @@ import { useThoughts } from './hooks/use-thoughts'
 import { ThoughtsList } from './components/thoughts-list'
 import { Header } from './components/header'
 import { LogoIcon } from './components/icons'
-import { DropdownMenu } from './components/dropdown-menu'
+import { Menu } from './components/menu'
 import './styles/app.css'
 
 export default function App() {
@@ -13,7 +13,7 @@ export default function App() {
     <div className='app'>
       <Header>
         <LogoIcon />
-        <DropdownMenu deteleAllThoughts={deteleAllThoughts} />
+        <Menu deteleAllThoughts={deteleAllThoughts} />
       </Header>
 
       <ThoughtsList
