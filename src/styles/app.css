@@ -115,8 +115,9 @@ kbd {
 /* modal */
 
 .modal {
-  background-color: rgba(0, 0, 0, 0.2);
-  width: 330px;
+  color: var(--fg);
+  background-color: var(--modalbg);
+  width: min(330px, 100%);
 
   margin: auto;
   padding: 2.4rem clamp(1.8rem, 8vw, 4rem);
@@ -131,7 +132,7 @@ kbd {
 }
 
 .modal::backdrop {
-  background-color: rgba(0, 0, 0, 0.6);
+  /* background-color: rgba(0, 0, 0, 0); */
   backdrop-filter: blur(1px);
 }
 
@@ -181,6 +182,7 @@ kbd {
 }
 
 .modal-close {
+  color: var(--fg);
   background-color: transparent;
   position: absolute;
   top: 12px;
@@ -198,7 +200,7 @@ kbd {
 }
 
 .modal-close:hover {
-  background-color: var(--gray2);
+  background-color: var(--gray4);
 }
 
 /* main */
@@ -240,15 +242,6 @@ h2 {
 #textarea-root:hover {
   background-color: var(--gray1);
 }
-
-#textarea-root {
-  padding-right: 60px;
-  /* background-color: var(--gray1); */
-}
-
-/* #textarea-root:not(:focus) {
-  background-color: #0a0a0a;
-} */
 
 /* thoughts */
 
