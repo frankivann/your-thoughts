@@ -1,13 +1,18 @@
 import { useThoughts } from './hooks/use-thoughts'
-import { ThoughtsList } from './components/thoughts-list'
+import { Menu } from './components/menu'
 import { Header } from './components/header'
 import { LogoIcon } from './components/icons'
-import { Menu } from './components/menu'
+import { ThoughtsList } from './components/thoughts-list'
 import './styles/app.css'
 
 export default function App() {
-  const { thoughts, updateThoughts, deleteThoughtById, deteleAllThoughts } =
-    useThoughts()
+  const {
+    thoughts,
+    createNewThought,
+    storeNewThought,
+    deleteThoughtById,
+    deteleAllThoughts,
+  } = useThoughts()
 
   return (
     <div className='app'>
@@ -18,7 +23,8 @@ export default function App() {
 
       <ThoughtsList
         thoughts={thoughts}
-        updateThoughts={updateThoughts}
+        storeNewThought={storeNewThought}
+        createNewThought={createNewThought}
         deleteThoughtById={deleteThoughtById}
       />
     </div>
