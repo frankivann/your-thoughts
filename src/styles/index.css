@@ -43,7 +43,7 @@ li {
   --gray5: #666666; /* time and placeholder */
   --gray6: #e2e2e2; /* text textarea */
   --gray7: #f5f5f5; /* h2 */
-  --danger: #fc3636;
+  --danger: #ff2828;
   --shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 
   color-scheme: light dark;

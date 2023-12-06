@@ -115,30 +115,24 @@ kbd {
 /* modal */
 
 .modal {
-  background-color: #060606;
-  position: relative;
-  padding: 2.4rem 4rem;
+  background-color: rgba(0, 0, 0, 0.2);
+  width: 330px;
+
   margin: auto;
+  padding: 2.4rem clamp(1.8rem, 8vw, 4rem);
 
   outline: none;
   border: 1px solid var(--gray4);
   border-radius: 12px;
 
-  overflow-x: hidden;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(10px);
 }
 
 .modal::backdrop {
   background-color: rgba(0, 0, 0, 0.6);
   backdrop-filter: blur(1px);
-}
-
-.modal-main {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-
-  gap: 30px;
 }
 
 .modal-content {
@@ -149,28 +143,32 @@ kbd {
 }
 
 .modal-content p {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 4px;
-
   font-size: 20px;
   font-weight: 600;
+
+  text-align: center;
+  text-wrap: pretty;
 }
 
 .modal-content p:nth-child(2) {
-  color: #888;
   font-size: 14px;
 }
 
 .modal-accept {
   color: #f0f0f0;
   background-color: var(--danger);
-  width: 100%;
+  width: min(200px, 100%);
 
+  margin: auto;
+  margin-top: 30px;
   padding: 10px;
+
   font-size: 12px;
   font-weight: 600;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   border: transparent;
   border-radius: 8px;
@@ -179,28 +177,28 @@ kbd {
 }
 
 .modal-accept:hover {
-  background-color: var(--danger);
+  background-color: #ec0e0e;
 }
 
 .modal-close {
   background-color: transparent;
-  border: transparent;
+  position: absolute;
+  top: 12px;
+  right: 16px;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
   padding: 4px;
+  border: transparent;
+  border-radius: 100%;
 
-  border-radius: 9999px;
-
-  position: absolute;
-  top: 12px;
-  right: 16px;
+  transition: background-color 0.2s ease;
 }
 
 .modal-close:hover {
-  background-color: var(--gray4);
+  background-color: var(--gray2);
 }
 
 /* main */
