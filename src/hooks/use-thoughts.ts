@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { type Thoughts } from '../types'
+import { Thought, type Thoughts } from '../types'
 import { INITIAL_THOUGHTS, KEY_DAYS } from '../constants'
 import { getStoredThoughts, storeThoughts } from '../services/thoughts'
 
@@ -19,6 +19,21 @@ export function useThoughts() {
     },
     [thoughts]
   )
+
+  const createNewThought = (thought: string) => {
+    return {
+      id: crypto.randomUUID(),
+      timestamp: new Date().toISOString(),
+      value: thought.trim(),
+    }
+  }
+
+  const storeNewThought = (thought: Thought) => {
+    const newThoughts = { ...thoughts }
+    newThoughts.Today = [thought, ...newThoughts.Today]
+    updateThoughts(newThoughts)
+    storeThoughts(newThoughts)
+  }
 
   const updateThoughts = (newThoughts: Thoughts) => {
     setThoughts(newThoughts)
@@ -49,6 +64,8 @@ export function useThoughts() {
 
   return {
     thoughts,
+    createNewThought,
+    storeNewThought,
     updateThoughts,
     deleteThoughtById,
     deteleAllThoughts,
