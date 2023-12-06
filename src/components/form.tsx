@@ -1,13 +1,12 @@
 import { useRef, useState } from 'react'
-import { storeThoughts } from '../services/thoughts'
-import { type Thoughts } from '../types'
+import { type Thought } from '../types'
 
 interface Props {
-  thoughts: Thoughts
-  updateThoughts: (newThoughts: Thoughts) => void
+  createNewThought: (thought: string) => Thought
+  storeNewThought: (thought: Thought) => void
 }
 
-export function Form({ thoughts, updateThoughts }: Props) {
+export function Form({ createNewThought, storeNewThought }: Props) {
   const [thought, setThought] = useState('')
   const [shiftPressed, setShiftPressed] = useState(false)
   const textareaRef = useRef<HTMLTextAreaElement | null>(null)
@@ -40,16 +39,8 @@ export function Form({ thoughts, updateThoughts }: Props) {
     if (isEnter && !shiftPressed) {
       event.preventDefault()
 
-      const newThought = {
-        id: crypto.randomUUID(),
-        timestamp: new Date().toISOString(),
-        value: thought.trim(),
-      }
-
-      const newThoughts = { ...thoughts }
-      newThoughts.Today = [newThought, ...newThoughts.Today]
-      updateThoughts(newThoughts)
-      storeThoughts(newThoughts)
+      const newThought = createNewThought(thought)
+      storeNewThought(newThought)
 
       setThought('')
       if (textarea) {
