@@ -16,7 +16,7 @@ export function ThoughtsPerDay({
 }: Props) {
   return (
     <article>
-      <h2 className='title-day'>{day}</h2>
+      <h2>{day}</h2>
       {children}
       <hr className='divider' />
       <ThoughtsListPerDay
