@@ -1,17 +1,19 @@
-import { type Thoughts } from '../types'
-import { KEY_DAYS } from '../constants'
 import { Form } from './form'
 import { ThoughtsPerDay } from './thoughts-per-day'
+import { KEY_DAYS } from '../constants'
+import { type Thought, type Thoughts } from '../types'
 
 interface Props {
   thoughts: Thoughts
-  updateThoughts: (newThoughts: Thoughts) => void
+  storeNewThought: (thought: Thought) => void
+  createNewThought: (thought: string) => Thought
   deleteThoughtById: (day: string, id: string) => void
 }
 
 export function ThoughtsList({
   thoughts,
-  updateThoughts,
+  storeNewThought,
+  createNewThought,
   deleteThoughtById,
 }: Props) {
   const entries = Object.entries(thoughts)
@@ -28,7 +30,10 @@ export function ThoughtsList({
             thoughtsPerDay={thoughtsPerDay}
             deleteThoughtById={deleteThoughtById}
           >
-            <Form thoughts={thoughts} updateThoughts={updateThoughts} />
+            <Form
+              storeNewThought={storeNewThought}
+              createNewThought={createNewThought}
+            />
           </ThoughtsPerDay>
         ) : (
           <ThoughtsPerDay
