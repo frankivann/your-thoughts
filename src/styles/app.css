@@ -112,6 +112,97 @@ kbd {
   /* margin-left: 16px; */
 }
 
+/* modal */
+
+.modal {
+  background-color: #060606;
+  position: relative;
+  padding: 2.4rem 4rem;
+  margin: auto;
+
+  outline: none;
+  border: 1px solid var(--gray4);
+  border-radius: 12px;
+
+  overflow-x: hidden;
+}
+
+.modal::backdrop {
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(1px);
+}
+
+.modal-main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  gap: 30px;
+}
+
+.modal-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.modal-content p {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.modal-content p:nth-child(2) {
+  color: #888;
+  font-size: 14px;
+}
+
+.modal-accept {
+  color: #f0f0f0;
+  background-color: var(--danger);
+  width: 100%;
+
+  padding: 10px;
+  font-size: 12px;
+  font-weight: 600;
+
+  border: transparent;
+  border-radius: 8px;
+
+  transition: background-color 0.2s ease;
+}
+
+.modal-accept:hover {
+  background-color: var(--danger);
+}
+
+.modal-close {
+  background-color: transparent;
+  border: transparent;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 4px;
+
+  border-radius: 9999px;
+
+  position: absolute;
+  top: 12px;
+  right: 16px;
+}
+
+.modal-close:hover {
+  background-color: var(--gray4);
+}
+
 /* main */
 
 main {
