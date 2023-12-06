@@ -41,8 +41,10 @@ export function useThoughts() {
   }
 
   const deteleAllThoughts = () => {
-    setThoughts(INITIAL_THOUGHTS)
-    storeThoughts(INITIAL_THOUGHTS)
+    console.log('deleting...')
+
+    // setThoughts(INITIAL_THOUGHTS)
+    // storeThoughts(INITIAL_THOUGHTS)
   }
 
   return {
