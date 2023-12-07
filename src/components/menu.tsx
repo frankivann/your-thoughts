@@ -25,9 +25,9 @@ export function Menu({ deteleAllThoughts }: Props) {
       if (!isTarget) closeDropdonwMenu()
     }
 
-    window.document.addEventListener('mousedown', handleClickOutside)
+    window.document.addEventListener('click', handleClickOutside)
     return () => {
-      window.document.removeEventListener('mousedown', handleClickOutside)
+      window.document.removeEventListener('click', handleClickOutside)
     }
   }, [menuRef, showDropdown])
 
