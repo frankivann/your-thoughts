@@ -28,11 +28,28 @@ export function Modal({ showModal, closeModal, onAccept }: Props) {
     if (isEscape) closeModal()
   }
 
+  const onClick = (event: React.MouseEvent<HTMLDialogElement>) => {
+    const dialogDimensions = event.currentTarget.getBoundingClientRect()
+
+    const isClickOutside =
+      event.clientY < dialogDimensions.top ||
+      event.clientY > dialogDimensions.bottom ||
+      event.clientX < dialogDimensions.left ||
+      event.clientX > dialogDimensions.right
+
+    if (isClickOutside) closeModal()
+  }
+
   return (
     <>
       {showModal &&
         createPortal(
-          <dialog className='modal' ref={modalRef} onKeyDown={onKeyDown}>
+          <dialog
+            className='modal'
+            ref={modalRef}
+            onClick={onClick}
+            onKeyDown={onKeyDown}
+          >
             <section className='modal-main'>
               <div className='modal-content'>
                 <p>¿Are you sure?</p>
