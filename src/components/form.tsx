@@ -55,7 +55,7 @@ export function Form({ createNewThought, storeNewThought }: Props) {
       ref={textareaRef}
       value={thought}
       name='thought'
-      placeholder='Let your thoughts out'
+      placeholder="What's on your mind?"
       autoFocus
       rows={1}
       spellCheck={false}
