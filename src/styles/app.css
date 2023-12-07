@@ -55,6 +55,20 @@
   border: 1px solid var(--gray4);
   border-radius: 8px;
   box-shadow: var(--shadow);
+
+  opacity: 0;
+  animation: menuFadeIn 0.2s ease-out forwards;
+}
+
+@keyframes menuFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .menu-li {
@@ -118,6 +132,7 @@ kbd {
   color: var(--fg);
   background-color: var(--modalbg);
   width: min(330px, 100%);
+  position: fixed;
 
   margin: auto;
   padding: 2.4rem clamp(1.8rem, 8vw, 4rem);
@@ -129,10 +144,23 @@ kbd {
   overflow: hidden;
   box-shadow: var(--shadow);
   backdrop-filter: blur(10px);
+
+  opacity: 0;
+  animation: modalFadeIn 0.2s ease-out both;
+}
+
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .modal::backdrop {
-  /* background-color: rgba(0, 0, 0, 0); */
   backdrop-filter: blur(1px);
 }
 
