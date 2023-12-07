@@ -22,11 +22,17 @@ export function Modal({ showModal, closeModal, onAccept }: Props) {
     [showModal]
   )
 
+  const onKeyDown = (event: React.KeyboardEvent<HTMLDialogElement>) => {
+    const { key } = event
+    const isEscape = key === 'Escape'
+    if (isEscape) closeModal()
+  }
+
   return (
     <>
       {showModal &&
         createPortal(
-          <dialog className='modal' ref={modalRef}>
+          <dialog className='modal' ref={modalRef} onKeyDown={onKeyDown}>
             <section className='modal-main'>
               <div className='modal-content'>
                 <p>¿Are you sure?</p>
