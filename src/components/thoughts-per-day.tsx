@@ -1,4 +1,6 @@
 import { type Thought } from '../types'
+import { ThoughtDay } from './thought-day'
+import { ThoughtDivider } from './thought-divider'
 import { ThoughtsListPerDay } from './thoughts-list-per-day'
 
 interface Props {
@@ -16,12 +18,12 @@ export function ThoughtsPerDay({
 }: Props) {
   return (
     <article>
-      <h2>{day}</h2>
+      <ThoughtDay day={day} />
       {children}
-      <hr className='divider' />
+      <ThoughtDivider />
       <ThoughtsListPerDay
-        key={day}
         day={day}
+        key={day}
         thoughtsPerDay={thoughtsPerDay}
         deleteThoughtById={deleteThoughtById}
       />
