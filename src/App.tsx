@@ -1,4 +1,4 @@
-import { useThoughts } from './hooks/use-thoughts'
+import { useThought } from './hooks/use-thought'
 import { Menu } from './components/menu'
 import { Header } from './components/header'
 import { LogoIcon } from './components/icons'
@@ -12,7 +12,7 @@ export default function App() {
     storeNewThought,
     deleteThoughtById,
     deteleAllThoughts,
-  } = useThoughts()
+  } = useThought()
 
   return (
     <div className='app'>
