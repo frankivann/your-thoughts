@@ -60,6 +60,10 @@
   animation: menuFadeIn 0.2s ease-out forwards;
 }
 
+.menu-ul.fade-out {
+  animation: menuFadeOut 0.2s ease-out forwards;
+}
+
 @keyframes menuFadeIn {
   from {
     opacity: 0;
@@ -68,6 +72,17 @@
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@keyframes menuFadeOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-10%);
   }
 }
 
