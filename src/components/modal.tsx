@@ -16,8 +16,11 @@ export function Modal({ showModal, closeModal, onAccept }: Props) {
       const modal = modalRef.current
       if (!modal) return
 
-      if (showModal) modal.showModal()
-      else modal.close()
+      if (showModal) {
+        modal.showModal()
+      } else {
+        modal.close()
+      }
     },
     [showModal]
   )
@@ -28,7 +31,7 @@ export function Modal({ showModal, closeModal, onAccept }: Props) {
     if (isEscape) closeModal()
   }
 
-  const onClick = (event: React.MouseEvent<HTMLDialogElement>) => {
+  const handleClickOutside = (event: React.MouseEvent<HTMLDialogElement>) => {
     const dialogDimensions = event.currentTarget.getBoundingClientRect()
 
     const isClickOutside =
@@ -47,7 +50,7 @@ export function Modal({ showModal, closeModal, onAccept }: Props) {
           <dialog
             className='modal'
             ref={modalRef}
-            onClick={onClick}
+            onClick={handleClickOutside}
             onKeyDown={onKeyDown}
           >
             <section className='modal-main'>
