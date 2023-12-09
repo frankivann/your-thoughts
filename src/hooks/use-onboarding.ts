@@ -11,19 +11,6 @@ export function useOnboarding() {
 
   useEffect(
     function () {
-      const Allthoughts: NodeListOf<HTMLTextAreaElement> =
-        document.querySelectorAll('[data-thought-id]')
-
-      Allthoughts.forEach(element => {
-        element.style.height = 'auto'
-        element.style.height = `${element.scrollHeight}px`
-      })
-    },
-    [onboardingThoughts]
-  )
-
-  useEffect(
-    function () {
       const intervalId = setInterval(() => {
         if (currentIndex < INITIAL_ONBOARDING_THOUGHTS.length) {
           const newThoughts = [
