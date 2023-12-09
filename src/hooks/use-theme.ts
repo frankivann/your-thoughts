@@ -1,10 +1,10 @@
 import { useState, useEffect, useCallback } from 'react'
-import { getThemeMode, storeThemeMode } from '../services/theme'
+import { getStoredThemeMode, storeThemeMode } from '../services/theme'
 import { KEYDOWN_THEME, THEME_MODES } from '../constants'
 import { type ThemeMode } from '../types'
 
 export function useTheme() {
-  const [theme, setTheme] = useState<ThemeMode>(getThemeMode())
+  const [theme, setTheme] = useState<ThemeMode>(getStoredThemeMode())
 
   useEffect(
     function () {
