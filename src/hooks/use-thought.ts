@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { Thought, type Thoughts } from '../types'
+import { type Thought, type Thoughts } from '../types'
 import { INITIAL_THOUGHTS, KEY_DAYS } from '../constants'
 import { getStoredThoughts, storeThoughts } from '../services/thoughts'
 
