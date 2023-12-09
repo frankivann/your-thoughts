@@ -1,24 +1,10 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { type Thought, type Thoughts } from '../types'
 import { INITIAL_THOUGHTS, KEY_DAYS } from '../constants'
 import { getStoredThoughts, storeThoughts } from '../services/thoughts'
 
 export function useThought() {
   const [thoughts, setThoughts] = useState<Thoughts>(getStoredThoughts())
-
-  // make height auto resize based on content
-  useEffect(
-    function () {
-      const Allthoughts: NodeListOf<HTMLTextAreaElement> =
-        document.querySelectorAll('[data-thought-id]')
-
-      Allthoughts.forEach(element => {
-        element.style.height = 'auto'
-        element.style.height = `${element.scrollHeight}px`
-      })
-    },
-    [thoughts]
-  )
 
   const createNewThought = (thought: string) => {
     return {
