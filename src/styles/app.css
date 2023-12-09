@@ -245,7 +245,7 @@ main {
   margin: 0 auto;
 
   min-height: 100dvh;
-  padding: 90px 36px 160px;
+  padding: 80px 36px 120px;
 }
 
 main::after {
@@ -336,7 +336,7 @@ textarea {
   text-wrap: pretty;
 
   overflow-y: hidden;
-  transition: background-color 0.4s ease, color 0.4s ease;
+  transition: background-color 0.4s ease;
 }
 
 textarea::placeholder {
