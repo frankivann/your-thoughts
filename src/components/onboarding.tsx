@@ -1,8 +1,9 @@
+import { useEffect } from 'react'
 import { ThoughtDay } from './thought-day'
-import { ThoughtDivider } from './thought-divider'
-import { StaticTimestamp } from './static-timestamp'
 import { ContinueIcon } from './icons'
 import { type Thought } from '../types'
+import { ThoughtDivider } from './thought-divider'
+import { StaticTimestamp } from './static-timestamp'
 
 interface Props {
   onboardingThoughts: Thought[]
@@ -15,6 +16,20 @@ export function Onboarding({
   showContinue,
   completeOnboarding,
 }: Props) {
+  // make height auto resize based on content
+  useEffect(
+    function () {
+      const Allthoughts: NodeListOf<HTMLTextAreaElement> =
+        document.querySelectorAll('[data-thought-id]')
+
+      Allthoughts.forEach(element => {
+        element.style.height = 'auto'
+        element.style.height = `${element.scrollHeight}px`
+      })
+    },
+    [onboardingThoughts]
+  )
+
   return (
     <main>
       <article style={{ opacity: 0 }}>
