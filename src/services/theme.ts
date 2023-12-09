@@ -1,7 +1,7 @@
 import { THEME_MODES, THOUGHTS_THEME_NAME } from '../constants'
 import { type ThemeMode } from '../types'
 
-export function getThemeMode() {
+export function getStoredThemeMode() {
   const theme = window.localStorage.getItem(THOUGHTS_THEME_NAME) as ThemeMode
   if (theme) return theme
 
