@@ -25,6 +25,11 @@ export function Modal({ showModal, closeModal, onAccept }: Props) {
     [showModal]
   )
 
+  const handleOnAcceptAndCloseModal = () => {
+    onAccept()
+    closeModal()
+  }
+
   const onKeyDown = (event: React.KeyboardEvent<HTMLDialogElement>) => {
     const { key } = event
     const isEscape = key === 'Escape'
@@ -59,7 +64,10 @@ export function Modal({ showModal, closeModal, onAccept }: Props) {
                 <p>This will clear all your thoughts</p>
               </div>
 
-              <button className='modal-accept' onClick={onAccept}>
+              <button
+                className='modal-accept'
+                onClick={handleOnAcceptAndCloseModal}
+              >
                 clear
               </button>
             </section>
