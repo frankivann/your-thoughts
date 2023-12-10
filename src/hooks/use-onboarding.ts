@@ -24,7 +24,7 @@ export function useOnboarding() {
           setShowContinue(true)
           clearInterval(intervalId)
         }
-      }, 1500)
+      }, 1100)
 
       return () => clearInterval(intervalId)
     },
