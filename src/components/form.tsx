@@ -21,12 +21,12 @@ export function Form({ createNewThought, storeNewThought }: Props) {
     }
   }
 
-  const handleKeyUp = (event: React.KeyboardEvent<HTMLTextAreaElement>) => {
+  const onKeyUp = (event: React.KeyboardEvent<HTMLTextAreaElement>) => {
     const { key } = event
     if (key === 'Shift') setShiftPressed(false)
   }
 
-  const handleKeyDown = (event: React.KeyboardEvent<HTMLTextAreaElement>) => {
+  const onKeyDown = (event: React.KeyboardEvent<HTMLTextAreaElement>) => {
     const { key } = event
     const isEnter = key === 'Enter'
     const isShift = key === 'Shift'
@@ -60,8 +60,8 @@ export function Form({ createNewThought, storeNewThought }: Props) {
       rows={1}
       spellCheck={false}
       onChange={handleChange}
-      onKeyUp={handleKeyUp}
-      onKeyDown={handleKeyDown}
+      onKeyUp={onKeyUp}
+      onKeyDown={onKeyDown}
       style={{ height: '48px', overflowY: 'hidden' }}
     />
   )
