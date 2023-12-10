@@ -7,7 +7,7 @@ export const INITIAL_ONBOARDING_THOUGHTS = [
   {
     id: crypto.randomUUID(),
     timestamp: new Date().toISOString(),
-    value: 'Welcome to Thoughts.',
+    value: 'Welcome to Thoughts App.',
   },
   {
     id: crypto.randomUUID(),
