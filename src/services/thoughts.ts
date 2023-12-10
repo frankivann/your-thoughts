@@ -31,15 +31,20 @@ export function getStoredThoughts() {
     return INITIAL_THOUGHTS
   }
 
-  const parsedThoughts = JSON.parse(thoughts) as Thought
-  const onlyThoughts = Object.values(parsedThoughts).flat()
-  const isThoughtsEmpty = onlyThoughts.length === 0
+  try {
+    const parsedThoughts = JSON.parse(thoughts) as Thought
+    const onlyThoughts = Object.values(parsedThoughts).flat()
+    const isThoughtsEmpty = onlyThoughts.length === 0
 
-  if (isThoughtsEmpty) return INITIAL_THOUGHTS
+    if (isThoughtsEmpty) throw new Error()
 
-  const sortedToughts = sortThoughts(onlyThoughts)
-  const thoughtsGroupedByFormatDay = groupByFormatDay(sortedToughts)
-  return thoughtsGroupedByFormatDay
+    const sortedToughts = sortThoughts(onlyThoughts)
+    const thoughtsGroupedByFormatDay = groupByFormatDay(sortedToughts)
+    return thoughtsGroupedByFormatDay
+  } catch (error) {
+    storeThoughts(INITIAL_THOUGHTS)
+    return INITIAL_THOUGHTS
+  }
 }
 
 export function storeThoughts(thoughts: Thoughts) {
