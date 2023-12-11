@@ -17,7 +17,7 @@ export function ThoughtsPerDay({
   deleteThoughtById,
 }: Props) {
   return (
-    <article style={{ opacity: 0 }}>
+    <article>
       <ThoughtDay day={day} />
       {children}
       <ThoughtDivider />
