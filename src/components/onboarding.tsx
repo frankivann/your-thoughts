@@ -32,12 +32,12 @@ export function Onboarding({
 
   return (
     <main>
-      <article style={{ opacity: 0 }}>
+      <article>
         <ThoughtDay day='Onboarding' />
         <ThoughtDivider />
         <ul className='thoughts'>
           {onboardingThoughts.map(thought => (
-            <li className='thought' key={thought.id} style={{ opacity: 0 }}>
+            <li className='thought' key={thought.id}>
               <textarea
                 data-thought-id={thought.id}
                 rows={1}
@@ -52,11 +52,7 @@ export function Onboarding({
           ))}
         </ul>
         {showContinue && (
-          <button
-            className='continue'
-            onClick={completeOnboarding}
-            style={{ opacity: 0 }}
-          >
+          <button className='continue' onClick={completeOnboarding}>
             <ContinueIcon />
           </button>
         )}
