@@ -11,6 +11,8 @@ export function useOnboarding() {
 
   useEffect(
     function () {
+      if (hasOnboarded) return
+
       const intervalId = setInterval(() => {
         if (currentIndex < INITIAL_ONBOARDING_THOUGHTS.length) {
           const newThoughts = [
@@ -28,7 +30,7 @@ export function useOnboarding() {
 
       return () => clearInterval(intervalId)
     },
-    [currentIndex, onboardingThoughts]
+    [hasOnboarded, currentIndex, onboardingThoughts]
   )
 
   const completeOnboarding = () => {
