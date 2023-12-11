@@ -5,6 +5,21 @@
     <link rel="icon" type="image/svg+xml" href="/thoughts.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Thoughts App — Free your mind</title>
+    <script>
+      ;(function () {
+        try {
+          const rootElement = window.document.documentElement
+          const savedTheme = window.localStorage.getItem('_THOUGHTS_THEME_')
+          const isDark = savedTheme === 'dark'
+
+          if (isDark) {
+            rootElement.setAttribute('data-theme', 'dark')
+          } else {
+            rootElement.setAttribute('data-theme', 'light')
+          }
+        } catch (error) {}
+      })()
+    </script>
   </head>
   <body>
     <div id="root"></div>
