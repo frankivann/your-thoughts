@@ -8,13 +8,13 @@ export function useTheme() {
 
   useEffect(
     function () {
-      const html = window.document.documentElement
+      const rootElement = window.document.documentElement
 
       if (theme === THEME_MODES.DARK) {
-        html.setAttribute('data-theme', THEME_MODES.DARK)
+        rootElement.setAttribute('data-theme', THEME_MODES.DARK)
         storeThemeMode(THEME_MODES.DARK)
       } else {
-        html.setAttribute('data-theme', THEME_MODES.LIGHT)
+        rootElement.setAttribute('data-theme', THEME_MODES.LIGHT)
         storeThemeMode(THEME_MODES.LIGHT)
       }
     },
