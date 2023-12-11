@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { isToday } from 'date-fns'
 import { type Thought } from '../types'
 import { DynamicTimestamp } from './dynamic-timestamp'
@@ -11,9 +12,18 @@ interface Props {
 
 export function Thought({ day, thought, deleteThoughtById }: Props) {
   const today = isToday(new Date(thought.timestamp))
+  const [animation, setAnimation] = useState(false)
+
+  const handleDelete = async () => {
+    setAnimation(true)
+    await new Promise(r => setTimeout(r, 300))
+    deleteThoughtById(day, thought.id)
+  }
+
+  const fadeOut = animation ? 'fade-out' : ''
 
   return (
-    <li className='thought'>
+    <li className={`thought ${fadeOut}`}>
       <textarea
         data-thought-id={thought.id}
         rows={1}
@@ -28,10 +38,7 @@ export function Thought({ day, thought, deleteThoughtById }: Props) {
       ) : (
         <StaticTimestamp timestamp={thought.timestamp} />
       )}
-      <button
-        className='delete'
-        onClick={() => deleteThoughtById(day, thought.id)}
-      >
+      <button className='delete' onClick={handleDelete}>
         delete
       </button>
     </li>
