@@ -265,6 +265,7 @@ main::after {
 
 article {
   position: relative;
+  opacity: 0;
   animation: fadeIn 0.8s ease-out forwards;
 }
 
@@ -300,6 +301,10 @@ h2 {
 .thought {
   position: relative;
   animation: fadeIn 0.3s ease-out forwards;
+}
+
+.thought.fade-out {
+  animation: fadeOut 0.1s ease-out forwards;
 }
 
 .thought:hover textarea {
@@ -356,7 +361,7 @@ textarea:focus + .timestamp {
   color: var(--gray5);
   position: absolute;
   top: 50%;
-  left: -78px;
+  left: -86px;
   right: unset;
 
   cursor: default;
@@ -393,6 +398,12 @@ textarea:focus + .timestamp {
 @keyframes fadeIn {
   to {
     opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
   }
 }
 
