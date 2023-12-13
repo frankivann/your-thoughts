@@ -38,7 +38,7 @@ export function Thought({ day, thought, deleteThoughtById }: Props) {
       ) : (
         <StaticTimestamp timestamp={thought.timestamp} />
       )}
-      <button className='delete' onClick={handleDelete}>
+      <button aria-label='delete' className='delete' onClick={handleDelete}>
         delete
       </button>
     </li>

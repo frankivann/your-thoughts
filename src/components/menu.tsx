@@ -28,6 +28,7 @@ export function Menu({ deteleAllThoughts }: Props) {
     <>
       <nav className='menu' ref={menuRef}>
         <button
+          aria-label='Toggle dropdown'
           className='toggle'
           onClick={toggleDropdownMenu}
           style={{ backgroundColor }}
