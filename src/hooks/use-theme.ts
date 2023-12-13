@@ -1,7 +1,11 @@
 import { useState, useEffect, useCallback } from 'react'
 import { getStoredThemeMode, storeThemeMode } from '../services/theme'
-import { KEYDOWN_THEME, THEME_MODES } from '../constants'
 import { type ThemeMode } from '../types'
+import {
+  DATA_ATTRIBUTE_THEME_NAME,
+  KEYDOWN_THEME,
+  THEME_MODES,
+} from '../constants'
 
 export function useTheme() {
   const [theme, setTheme] = useState<ThemeMode>(getStoredThemeMode())
@@ -11,10 +15,10 @@ export function useTheme() {
       const rootElement = window.document.documentElement
 
       if (theme === THEME_MODES.DARK) {
-        rootElement.setAttribute('data-theme', THEME_MODES.DARK)
+        rootElement.setAttribute(DATA_ATTRIBUTE_THEME_NAME, THEME_MODES.DARK)
         storeThemeMode(THEME_MODES.DARK)
       } else {
-        rootElement.setAttribute('data-theme', THEME_MODES.LIGHT)
+        rootElement.setAttribute(DATA_ATTRIBUTE_THEME_NAME, THEME_MODES.LIGHT)
         storeThemeMode(THEME_MODES.LIGHT)
       }
     },

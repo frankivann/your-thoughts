@@ -1,7 +1,7 @@
-import { THOUGHTS_ONBOARDED } from '../constants'
+import { THOUGHTS_ONBOARDED_NAME } from '../constants'
 
 export function getStoredOnboarding() {
-  const hasOnboarded = window.localStorage.getItem(THOUGHTS_ONBOARDED)
+  const hasOnboarded = window.localStorage.getItem(THOUGHTS_ONBOARDED_NAME)
 
   if (!hasOnboarded) {
     storeNoHasOnboarding()
@@ -21,9 +21,9 @@ export function getStoredOnboarding() {
 }
 
 export function storeHasOnboarding() {
-  window.localStorage.setItem(THOUGHTS_ONBOARDED, JSON.stringify(true))
+  window.localStorage.setItem(THOUGHTS_ONBOARDED_NAME, JSON.stringify(true))
 }
 
 export function storeNoHasOnboarding() {
-  window.localStorage.setItem(THOUGHTS_ONBOARDED, JSON.stringify(false))
+  window.localStorage.setItem(THOUGHTS_ONBOARDED_NAME, JSON.stringify(false))
 }
