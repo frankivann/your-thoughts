@@ -6,22 +6,22 @@ export const DATA_ATTRIBUTE_THEME_NAME = 'data-theme'
 export const KEYDOWN_THEME = ['T', 't']
 export const INITIAL_ONBOARDING_THOUGHTS = [
   {
-    id: crypto.randomUUID(),
+    id: 1,
     timestamp: new Date().toISOString(),
     value: 'Welcome to Thoughts App.',
   },
   {
-    id: crypto.randomUUID(),
+    id: 2,
     timestamp: new Date().toISOString(),
     value: 'Free your mind by expressing your most intimate thoughts.',
   },
   {
-    id: crypto.randomUUID(),
+    id: 3,
     timestamp: new Date().toISOString(),
     value: 'No filters or regrets. This is the canvas of your imagination.',
   },
   {
-    id: crypto.randomUUID(),
+    id: 4,
     timestamp: new Date().toISOString(),
     value:
       'Do not worry, you can always go back to read what was once in your thoughts.',
