@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { nanoid } from 'nanoid'
 import { type Thought, type Thoughts } from '../types'
 import { INITIAL_THOUGHTS, KEY_DAYS } from '../constants'
 import { getStoredThoughts, storeThoughts } from '../services/thoughts'
@@ -8,7 +9,7 @@ export function useThought() {
 
   const createNewThought = (thought: string) => {
     return {
-      id: crypto.randomUUID(),
+      id: nanoid(6),
       timestamp: new Date().toISOString(),
       value: thought.trim(),
     }
