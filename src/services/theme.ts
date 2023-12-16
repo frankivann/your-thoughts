@@ -11,13 +11,9 @@ export function getStoredThemeMode() {
   const isValidThemeMode =
     theme === THEME_MODES.DARK || theme === THEME_MODES.LIGHT
 
-  if (isValidThemeMode) {
-    storeThemeMode(theme)
-    return theme
-  }
+  if (isValidThemeMode) return theme
 
   const favoriteTheme = getPrefersColorScheme()
-  storeThemeMode(favoriteTheme)
   return favoriteTheme
 }
 
