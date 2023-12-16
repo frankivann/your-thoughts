@@ -45,9 +45,8 @@ export function useTheme() {
           isFormTarget = textareaRoot.contains(activeElement)
         }
 
-        if (KEYDOWN_THEME.includes(key) && !isFormTarget) {
-          toggleTheme()
-        }
+        if (isFormTarget) return
+        if (KEYDOWN_THEME.includes(key)) toggleTheme()
       }
 
       window.addEventListener('keydown', handleKeydown)
