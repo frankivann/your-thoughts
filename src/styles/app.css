@@ -24,7 +24,7 @@
   transition: background-color 0.4s ease;
 
   opacity: 0;
-  animation: fadeIn 0.3s ease-in forwards;
+  animation: fadeLeft 0.3s ease-in forwards;
 }
 
 .continue:hover {
@@ -38,11 +38,12 @@
 /* header */
 
 .header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   width: 100%;
   padding: 36px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 /* menu qué pereza tengo */
@@ -81,49 +82,37 @@
 
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 2px;
 
   border: 1px solid var(--gray4);
-  border-radius: 8px;
+  border-radius: 6px;
   box-shadow: var(--shadow);
 
   opacity: 0;
-  animation: menuFadeIn 0.15s ease-in forwards;
-  user-select: none;
   z-index: 1;
-  /* pointer-events: none; */
+  user-select: none;
+  animation: menuFadeIn 0.15s ease-in forwards;
 }
 
 .menu-li {
   position: relative;
 }
 
-.svg-icon {
-  color: var(--gray6);
-}
-
-.menu-divider {
-  background-color: var(--gray4);
-  width: 100%;
-  height: 1px;
-  border: 0;
-}
-
 .menu-button {
   color: var(--fg);
   background-color: transparent;
   width: 100%;
-  padding: 10px;
+  padding: 7px 8px;
 
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 12px;
+  gap: 20px;
 
   border: transparent;
   border-radius: 4px;
   text-align: start;
-  font-size: 12px;
+  font-size: 12.5px;
 }
 
 .menu-button:hover {
@@ -139,14 +128,11 @@ kbd {
   align-items: center;
   justify-content: center;
 
-  border: 1px solid var(--gray4);
   border-radius: 4px;
 
   text-transform: uppercase;
   font-weight: 600;
   font-size: 10px;
-
-  /* margin-left: 16px; */
 }
 
 /* modal */
@@ -170,6 +156,7 @@ kbd {
 
   opacity: 0;
   animation: modalFadeIn 0.2s ease-in forwards;
+  user-select: none;
 }
 
 .modal::backdrop {
@@ -412,6 +399,17 @@ textarea:focus + .timestamp {
 @keyframes fadeOut {
   to {
     opacity: 0;
+  }
+}
+
+@keyframes fadeLeft {
+  from {
+    opacity: 0;
+    transform: translateX(10%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
   }
 }
 
