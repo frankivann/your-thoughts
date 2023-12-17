@@ -1,6 +1,6 @@
 interface Props {
   title: string
-  icon: React.ReactNode
+  icon?: React.ReactNode
   onClick: () => void
 }
 
