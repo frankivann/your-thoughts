@@ -10,8 +10,8 @@ import './styles/app.css'
 export default function App() {
   const {
     thoughts,
-    createNewThought,
     storeNewThought,
+    createNewThought,
     deleteThoughtById,
     deteleAllThoughts,
   } = useThought()
