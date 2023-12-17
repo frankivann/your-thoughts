@@ -3,9 +3,8 @@ import { useModal } from '../hooks/use-modal'
 import { useDropdown } from '../hooks/use-dropdown'
 import { Modal } from './modal'
 import { MenuItem } from './menu-item'
-import { MenuDivider } from './menu-divider'
 import { DropdownMenu } from './dropdown-menu'
-import { BoxIcon, HamburgerIcon } from './icons'
+import { HamburgerIcon } from './icons'
 
 interface Props {
   deteleAllThoughts: () => void
@@ -43,10 +42,8 @@ export function Menu({ deteleAllThoughts }: Props) {
               icon={<kbd>T</kbd>}
               onClick={toggleTheme}
             />
-            <MenuDivider />
             <MenuItem
               title='Clear Thoughts'
-              icon={<BoxIcon />}
               onClick={handleOpenModalAndCloseMenu}
             />
           </DropdownMenu>
