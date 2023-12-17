@@ -237,7 +237,7 @@ main {
   margin: 0 auto;
 
   min-height: 100vh;
-  padding: 80px 36px 120px;
+  padding: clamp(35px, 10vw, 80px) 36px;
 
   opacity: 0;
   animation: fadeIn 0.3s ease-in forwards;
