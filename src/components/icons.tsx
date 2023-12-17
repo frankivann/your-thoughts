@@ -43,7 +43,6 @@ export function BoxIcon() {
       xmlns='http://www.w3.org/2000/svg'
       width='16'
       height='16'
-      className='svg-icon'
       viewBox='0 0 24 24'
       strokeWidth='1.5'
       stroke='currentColor'
