@@ -8,15 +8,17 @@ import { HamburgerIcon } from './icons'
 
 interface Props {
   deteleAllThoughts: () => void
+  hasThoughts: boolean
 }
 
-export function Menu({ deteleAllThoughts }: Props) {
+export function Menu({ hasThoughts, deteleAllThoughts }: Props) {
   const { toggleTheme } = useTheme()
   const { showModal, closeModal, openModal } = useModal()
   const { menuRef, showDropdown, closeDropdownMenu, toggleDropdownMenu } =
     useDropdown()
 
   const handleOpenModalAndCloseMenu = () => {
+    if (!hasThoughts) return
     openModal()
     closeDropdownMenu()
   }
