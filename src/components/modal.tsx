@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { createPortal } from 'react-dom'
 import { CloseIcon } from './icons'
 
@@ -10,24 +10,40 @@ interface Props {
 
 export function Modal({ showModal, closeModal, onAccept }: Props) {
   const modalRef = useRef<HTMLDialogElement | null>(null)
+  const [animation, setAnimation] = useState(false)
+
+  useEffect(
+    function () {
+      if (!animation) return
+
+      const allThoughts: NodeListOf<HTMLElement> =
+        window.document.querySelectorAll('article')
+
+      allThoughts.forEach(el => {
+        el.classList.add('fade-out')
+      })
+
+      setAnimation(false)
+    },
+    [animation]
+  )
 
   useEffect(
     function () {
       const modal = modalRef.current
       if (!modal) return
 
-      if (showModal) {
-        modal.showModal()
-      } else {
-        modal.close()
-      }
+      if (showModal) modal.showModal()
+      else modal.close()
     },
     [showModal]
   )
 
-  const handleOnAcceptAndCloseModal = () => {
-    onAccept()
+  const handleOnAcceptAndCloseModal = async () => {
+    setAnimation(true)
     closeModal()
+    await new Promise(r => setTimeout(r, 300))
+    onAccept()
   }
 
   const onKeyDown = (event: React.KeyboardEvent<HTMLDialogElement>) => {
