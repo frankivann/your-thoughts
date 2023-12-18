@@ -47,8 +47,11 @@ export function useThought() {
     storeThoughts(INITIAL_THOUGHTS)
   }
 
+  const hasThoughts = Object.values(thoughts).flat().length > 0
+
   return {
     thoughts,
+    hasThoughts,
     createNewThought,
     storeNewThought,
     updateThoughts,
