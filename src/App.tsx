@@ -10,6 +10,7 @@ import './styles/app.css'
 export default function App() {
   const {
     thoughts,
+    hasThoughts,
     storeNewThought,
     createNewThought,
     deleteThoughtById,
@@ -23,7 +24,7 @@ export default function App() {
     <div className='app'>
       <Header>
         <LogoIcon />
-        <Menu deteleAllThoughts={deteleAllThoughts} />
+        <Menu hasThoughts={hasThoughts} deteleAllThoughts={deteleAllThoughts} />
       </Header>
 
       {hasOnboarded ? (
