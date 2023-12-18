@@ -19,10 +19,10 @@ export function Onboarding({
   // make height auto resize based on content
   useEffect(
     function () {
-      const Allthoughts: NodeListOf<HTMLTextAreaElement> =
+      const allTextarea: NodeListOf<HTMLTextAreaElement> =
         document.querySelectorAll('[data-thought-id]')
 
-      Allthoughts.forEach(element => {
+      allTextarea.forEach(element => {
         element.style.height = 'auto'
         element.style.height = `${element.scrollHeight}px`
       })
@@ -37,7 +37,7 @@ export function Onboarding({
         <ThoughtDivider />
         <ul className='thoughts'>
           {onboardingThoughts.map(thought => (
-            <li className='thought' key={thought.id}>
+            <li className='thought onboarding' key={thought.id}>
               <textarea
                 data-thought-id={thought.id}
                 rows={1}
