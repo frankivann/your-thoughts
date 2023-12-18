@@ -33,10 +33,10 @@ li {
   --font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
     Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 
-  --bg: #040404;
+  --bg: #020202;
   --fg: #fff;
   --gray0: #101010; /* bg dropdown */
-  --gray1: #151515; /* hover textarea */
+  --gray1: #0c0c0c; /* hover textarea */
   --gray2: #161616; /* hover hamburger */
   --gray3: #1a1a1a; /* hover button dropdown, divider */
   --gray4: #222222; /* moda, kbd */
