@@ -265,6 +265,11 @@ article:not(:first-of-type) {
   margin-top: 40px;
 }
 
+article:not(:first-of-type).fade-out {
+  opacity: 1;
+  animation: fadeOut 0.3s ease-in forwards;
+}
+
 h2 {
   color: var(--gray7);
   margin-left: 12px;
@@ -292,6 +297,9 @@ h2 {
 
 .thought {
   position: relative;
+}
+
+.thought.onboarding {
   opacity: 0;
   animation: fadeIn 0.3s ease-in forwards;
 }
