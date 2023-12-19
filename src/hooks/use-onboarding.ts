@@ -9,6 +9,19 @@ export function useOnboarding() {
   const [showContinue, setShowContinue] = useState(false)
   const [currentIndex, setCurrentIndex] = useState(0)
 
+  // make height auto resize based on content
+  useEffect(
+    function () {
+      const allTextarea: NodeListOf<HTMLTextAreaElement> =
+        document.querySelectorAll('[data-thought-id]')
+
+      allTextarea.forEach(element => {
+        element.style.height = `${element.scrollHeight}px`
+      })
+    },
+    [onboardingThoughts]
+  )
+
   useEffect(
     function () {
       if (hasOnboarded) return
