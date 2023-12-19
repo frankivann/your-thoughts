@@ -356,7 +356,6 @@ textarea {
 textarea::placeholder {
   color: var(--gray5);
   white-space: nowrap;
-  text-overflow: ellipsis;
   overflow: hidden;
 }
 
