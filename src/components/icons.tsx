@@ -2,8 +2,8 @@ export function LogoIcon() {
   return (
     <svg
       xmlns='http://www.w3.org/2000/svg'
-      width='30'
-      height='30'
+      width='32'
+      height='32'
       viewBox='0 0 24 24'
       strokeWidth='1.7'
       stroke='currentColor'
@@ -21,8 +21,8 @@ export function HamburgerIcon() {
   return (
     <svg
       fill='none'
-      width='24'
-      height='24'
+      width='26'
+      height='26'
       stroke='currentColor'
       viewBox='0 0 24 24'
       xmlns='http://www.w3.org/2000/svg'
