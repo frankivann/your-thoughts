@@ -19,6 +19,7 @@ export function Menu({ hasThoughts, deteleAllThoughts }: Props) {
 
   const handleOpenModalAndCloseMenu = () => {
     if (!hasThoughts) return
+
     openModal()
     closeDropdownMenu()
   }
