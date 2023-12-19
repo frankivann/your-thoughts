@@ -26,7 +26,6 @@ export function ThoughtsList({
         document.querySelectorAll('[data-thought-id]')
 
       allTextarea.forEach(element => {
-        element.style.height = 'auto'
         element.style.height = `${element.scrollHeight}px`
       })
     },
