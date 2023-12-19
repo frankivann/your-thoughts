@@ -11,7 +11,7 @@ export function Form({ createNewThought, storeNewThought }: Props) {
   const [shiftPressed, setShiftPressed] = useState(false)
   const textareaRef = useRef<HTMLTextAreaElement | null>(null)
 
-  const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
+  const onChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
     setThought(event.target.value)
     const textarea = textareaRef.current
 
@@ -59,7 +59,7 @@ export function Form({ createNewThought, storeNewThought }: Props) {
       autoFocus
       rows={1}
       spellCheck={false}
-      onChange={handleChange}
+      onChange={onChange}
       onKeyUp={onKeyUp}
       onKeyDown={onKeyDown}
       style={{ height: '48px', overflowY: 'hidden' }}
