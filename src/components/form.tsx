@@ -62,7 +62,7 @@ export function Form({ createNewThought, storeNewThought }: Props) {
       onChange={onChange}
       onKeyUp={onKeyUp}
       onKeyDown={onKeyDown}
-      style={{ height: '48px', overflowY: 'hidden' }}
+      style={{ height: 'auto', overflowY: 'hidden' }}
     />
   )
 }
