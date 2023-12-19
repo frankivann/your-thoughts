@@ -20,7 +20,6 @@
   border-radius: 8px;
   outline: none;
 
-  opacity: 0;
   transition: background-color 0.4s ease;
   animation: fadeLeft 0.3s ease-in forwards;
 }
@@ -37,7 +36,7 @@
 
 .header {
   width: 100%;
-  padding: 36px;
+  padding: 36px 32px;
 
   display: flex;
   align-items: center;
@@ -86,10 +85,9 @@
   border-radius: 6px;
   box-shadow: var(--shadow);
 
-  opacity: 0;
   z-index: 1;
   user-select: none;
-  animation: menuFadeIn 0.15s ease-in forwards;
+  animation: fadeDown 0.15s ease-in forwards;
 }
 
 .menu-li {
@@ -100,7 +98,7 @@
   color: var(--fg);
   background-color: transparent;
   width: 100%;
-  padding: 7px 8px;
+  padding: 6px 8px;
 
   display: flex;
   align-items: center;
@@ -108,7 +106,7 @@
   gap: 20px;
 
   border: transparent;
-  border-radius: 4px;
+  border-radius: 6px;
   text-align: start;
   font-size: 12.5px;
 }
@@ -153,8 +151,7 @@ kbd {
 
   overflow: hidden;
   user-select: none;
-  opacity: 0;
-  animation: modalFadeIn 0.2s ease-in forwards;
+  animation: fadeUp 0.2s ease-in forwards;
 }
 
 .modal::backdrop {
@@ -236,9 +233,8 @@ main {
   margin: 0 auto;
 
   min-height: 100vh;
-  padding: clamp(3px, 10vw, 80px) 32px;
+  padding: clamp(20px, 10vw, 80px) 32px;
 
-  opacity: 0;
   animation: fadeIn 0.3s ease-in forwards;
 }
 
@@ -258,7 +254,6 @@ main::after {
 }
 
 main.fade-out {
-  opacity: 1;
   animation: fadeOut 0.3s ease-in-out forwards;
 }
 
@@ -271,7 +266,6 @@ article:not(:first-of-type) {
 }
 
 article:not(:first-of-type).fade-out {
-  opacity: 1;
   animation: fadeOut 0.3s ease-in forwards;
 }
 
@@ -302,17 +296,14 @@ h2 {
 
 .thought {
   position: relative;
-  opacity: 0;
   animation: fadeIn 0.3s ease-in forwards;
 }
 
 .thought.onboarding {
-  opacity: 0;
   animation: fadeIn 0.3s ease-in forwards;
 }
 
 .thought.fade-out {
-  opacity: 1;
   animation: fadeOut 0.3s ease-out forwards;
 }
 
@@ -405,16 +396,24 @@ textarea:focus + .timestamp {
 
 .delete:focus-visible {
   outline: 1.5px solid var(--danger);
-  border-radius: 4px;
+  border-radius: 6px;
 }
 
 @keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
   to {
     opacity: 1;
   }
 }
 
 @keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+
   to {
     opacity: 0;
   }
@@ -431,7 +430,7 @@ textarea:focus + .timestamp {
   }
 }
 
-@keyframes menuFadeIn {
+@keyframes fadeDown {
   from {
     opacity: 0;
     transform: translateY(-10%);
@@ -442,7 +441,7 @@ textarea:focus + .timestamp {
   }
 }
 
-@keyframes modalFadeIn {
+@keyframes fadeUp {
   from {
     opacity: 0;
     transform: translateY(10%);
