@@ -1,4 +1,3 @@
-import { useEffect } from 'react'
 import { ThoughtDay } from './thought-day'
 import { ContinueIcon } from './icons'
 import { type Thought } from '../types'
@@ -16,20 +15,6 @@ export function Onboarding({
   showContinue,
   completeOnboarding,
 }: Props) {
-  // make height auto resize based on content
-  useEffect(
-    function () {
-      const allTextarea: NodeListOf<HTMLTextAreaElement> =
-        document.querySelectorAll('[data-thought-id]')
-
-      allTextarea.forEach(element => {
-        element.style.height = 'auto'
-        element.style.height = `${element.scrollHeight}px`
-      })
-    },
-    [onboardingThoughts]
-  )
-
   return (
     <main>
       <article>
