@@ -257,6 +257,11 @@ main::after {
   pointer-events: none;
 }
 
+main.fade-out {
+  opacity: 1;
+  animation: fadeOut 0.3s ease-in-out forwards;
+}
+
 article {
   position: relative;
 }
@@ -297,6 +302,8 @@ h2 {
 
 .thought {
   position: relative;
+  opacity: 0;
+  animation: fadeIn 0.3s ease-in forwards;
 }
 
 .thought.onboarding {
