@@ -14,10 +14,9 @@ export function Thought({ day, thought, deleteThoughtById }: Props) {
   const today = isToday(new Date(thought.timestamp))
   const [animation, setAnimation] = useState(false)
 
-  const handleDelete = async () => {
+  const handleDelete = () => {
     setAnimation(true)
-    await new Promise(r => setTimeout(r, 300))
-    deleteThoughtById(day, thought.id)
+    setTimeout(() => deleteThoughtById(day, thought.id), 300)
   }
 
   const fadeOut = animation ? 'fade-out' : ''
