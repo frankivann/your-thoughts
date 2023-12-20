@@ -13,7 +13,8 @@ dist-ssr
 *.local
 
 package-lock.json
-/public
+/public/*
+!/public/thoughts-app.jpg
 
 # Editor directories and files
 .vscode/*
