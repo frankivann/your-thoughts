@@ -36,7 +36,7 @@
 
 .header {
   width: 100%;
-  padding: 36px 32px;
+  padding: 36px 40px;
 
   display: flex;
   align-items: center;
@@ -234,7 +234,7 @@ main {
   margin: 0 auto;
 
   min-height: 100vh;
-  padding: clamp(20px, 10vw, 80px) 32px;
+  padding: clamp(20px, 10vw, 78px) 40px;
 
   animation: fadeIn 0.3s ease-in forwards;
 }
