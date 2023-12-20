@@ -2,4 +2,4 @@
 
 Free your mind by expressing your most intimate thoughts.
 
-![Javascript Quizz image 1](/public/thoughts-app.jpg)
+![Thougts app image](/public/thoughts-app.jpg)
