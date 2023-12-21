@@ -73,34 +73,32 @@ export function Modal({ showModal, closeModal, onAccept }: Props) {
   }
 
   return (
-    <>
-      {showModal &&
-        createPortal(
-          <dialog
-            className='modal'
-            ref={modalRef}
-            onClick={handleClickOutside}
-            onKeyDown={onKeyDown}
-          >
-            <section className='modal-main'>
-              <div className='modal-content'>
-                <p>¿Are you sure?</p>
-                <p>This will clear all your thoughts</p>
-              </div>
+    showModal &&
+    createPortal(
+      <dialog
+        className='modal'
+        ref={modalRef}
+        onClick={handleClickOutside}
+        onKeyDown={onKeyDown}
+      >
+        <section className='modal-main'>
+          <div className='modal-content'>
+            <p>¿Are you sure?</p>
+            <p>This will clear all your thoughts</p>
+          </div>
 
-              <button
-                className='modal-accept'
-                onClick={handleOnAcceptAndCloseModal}
-              >
-                clear
-              </button>
-            </section>
-            <button className='modal-close' onClick={closeModal}>
-              <CloseIcon />
-            </button>
-          </dialog>,
-          window.document.getElementById('portal') as HTMLElement
-        )}
-    </>
+          <button
+            className='modal-accept'
+            onClick={handleOnAcceptAndCloseModal}
+          >
+            clear
+          </button>
+        </section>
+        <button className='modal-close' onClick={closeModal}>
+          <CloseIcon />
+        </button>
+      </dialog>,
+      window.document.getElementById('portal') as HTMLElement
+    )
   )
 }
