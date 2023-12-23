@@ -39,7 +39,7 @@ export function useOnboarding() {
           setShowContinue(true)
           clearInterval(intervalId)
         }
-      }, 1100)
+      }, 1000)
 
       return () => clearInterval(intervalId)
     },
