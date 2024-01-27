@@ -12,7 +12,7 @@ dist
 dist-ssr
 *.local
 
-package-lock.json
+pnpm-lock.yaml
 /public/*
 !/public/thoughts-app.jpg
 
