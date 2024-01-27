@@ -2,6 +2,6 @@
 
 Free your mind by expressing your most intimate thoughts.
 
-Based on website <a href="https://flow.rest/" target="_blank">Flow rest.</a>
+Based on website [Flow rest.](https://flow.rest/)
 
 ![Thougts app image](/public/thoughts-app.jpg)
